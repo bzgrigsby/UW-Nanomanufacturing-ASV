@@ -1,0 +1,199 @@
+#winch-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+#winch-header h2 {
+    margin: 0;
+}
+
+#winch-settings-icon {
+    height: 23px;
+    width: 23px;
+    padding: 2px;
+    border: solid black 2px;
+    border-radius: 4px;
+    transition: filter 0.1s linear;
+}
+
+#winch-settings-icon:hover {
+    filter: brightness(0.75);
+    cursor: pointer;
+}
+
+#winch-controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#winch-controls div {
+    height: 30px;
+}
+
+#depth-val-cont {
+    background-color: #eee;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black !important;
+}
+
+
+#depth-val-cont p {
+    margin: 0;
+}
+
+#depth-val-cont:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.8);
+    cursor: pointer;
+}
+
+#depth-val {
+    display: inline-block;
+    width: 33px;
+}
+
+#winch-up {
+    background-image: url("/static/images/fwd-btn.png");
+    rotate: 270deg;
+}
+
+#winch-stop {
+    width: 75px;
+    height: 40px;
+    font-size: 20px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: red;
+    color: black !important;
+}
+
+#winch-down {
+    background-image: url("/static/images/fwd-btn.png");
+    rotate: 90deg;
+}
+
+#winch-settings-menu {
+    box-sizing: border-box;
+    top: 0px;
+    left: 0px;
+    color: white !important;
+    display: block;
+    width: 1000px;
+    z-index: 500;
+    height: 337.5px;
+    position: absolute;
+    padding: 15px;
+    opacity: 0;
+
+    visibility: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: scale(0.9);
+    transition: all 0.2s ease-out;
+}
+
+#winch-settings-menu.active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+
+
+#winch-settings-top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#winch-settings-top-bar h2 {
+    margin-top: 0px;
+    color: black;
+}
+
+#winch-settings-values-cont {
+    color: black !important;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#inner-winch-settings-cont {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+#winch-settings-values-cont h3 {
+    margin-bottom: 2px;
+    margin-top: 3px;
+}
+
+.winch-settings-input-cont {
+    color: black !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+#winch-settings-graph-cont {
+    box-sizing: border-box;
+    width: 66%;
+    height: 250px;
+    border-radius: 8px;
+    position: relative;
+}
+
+#winch-graph {
+    width: 98%;
+    height: 90%;
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.smoothie-chart-tooltip {
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    z-index: 9999 !important; /* This pulls it in front of everything */
+    pointer-events: none;      /* Ensures the tooltip doesn't block mouse movement */
+    padding: 5px;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #555;
+}
+
+#timescale-txt {
+    text-align: right;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 3px;
+    width: 98%;
+}
+
+
+#winch-settings-stop {
+    background-color: red !important;
+}
