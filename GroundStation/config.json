@@ -1,0 +1,62 @@
+{
+    "dark_mode": true,
+    "man_nav": true,
+    "waypoints": [],
+    "backup-waypoints": [],
+    "pwr_mode": true,
+    "auto_mode": false,
+    "hold_mode": false,
+    "head_gains": {
+        "Kp": 10,
+        "Ki": 0.05,
+        "Kd": 0.3,
+        "N": 50
+    },
+    "head_gains_og": {
+        "Kp": 10,
+        "Ki": 0.05,
+        "Kd": 0.3,
+        "N": 50.0
+    },
+    "pos_gains": {
+        "Kp": 5,
+        "Ki": 0.05,
+        "Kd": 1,
+        "N": 30
+    },
+    "pos_gains_og": {
+        "Kp": 5.0,
+        "Ki": 0.05,
+        "Kd": 1.0,
+        "N": 30.0
+    },
+    "hold-radius": 400,
+    "base_lat": 47.649019184090356,
+    "base_lon": -122.29885518550874,
+    "max_winch_depth": 0,
+    "radius": 500,
+    "boat_lat": 47.652849,
+    "boat_lon": -122.298325,
+    "pwrLim": 30,
+    "Kp": "62",
+    "Ki": "36",
+    "Kd": "82",
+    "Kp_og": 98,
+    "Ki_og": 36,
+    "Kd_og": 12,
+    "baud_rate": 9600,
+    "backup_waypoints": [
+        {
+            "lat": 47.655982848484896,
+            "lon": -122.30962967430419
+        },
+        {
+            "lat": 47.65456638919308,
+            "lon": -122.3135575557714
+        },
+        {
+            "lat": 47.652875259922745,
+            "lon": -122.31531759009003
+        }
+    ]
+}
