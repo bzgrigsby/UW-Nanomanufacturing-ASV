@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/x-icon" href="/static/images/webIcon.png">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/switch.css">
+    <link rel="stylesheet" href="/static/css/winch.css">
+     <link rel="stylesheet" href="/static/vendor/leaflet/dist/leaflet.css">
+    <script src="/static/vendor/leaflet/dist/leaflet.js"></script>
+    <script src="/static/vendor/leaflet.rotatedMarker.js"></script>
+    <script src="/static/vendor/leaflet.tilelayer.fallback.js"></script>
+    <script src="/static/vendor/smoothie.js"></script>
+    <script src="/static/vendor/socket.io.min.js"></script>
+    <script src="/static/js/main.js" defer></script>
+    <script src="/static/js/winch.js" defer></script>
+    <script src="/static/js/settings.js" defer></script>
+    <title>Boat Control</title>
+
+</head>
+
+<body>
+    <div id="body-overlay" class="hidden">
+        <p>Sending CMD. Awaiting ACK.</p>
+    </div>
+    <div class="container" id="top-cont">
+        <div id="header-div" class="glass-card">
+            <div id="logo"></div>
+            <h1 style="text-align: center;">Boat Control Webserver</h1>
+            <div id="status">
+                <p id="status-p1">Status:&nbsp;<span id="connection-status">-</span></p>
+                <p id="status-p2"><img id="antenna-logo" src="/static/images/antenna.png"><span id="rssi">-</span>dBm</p>
+            </div>
+            <div id="clock">00:00:00</div>
+            <div id = "settings-icon-cont">
+                <div id="settings-icon"></div>
+            </div>
+            
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="map-cont">
+                <div id="map-l-btn-cont" class="glass-card">
+                    <div class="switch-text-cont">
+                        <div id="switch1-cont" class="switch-cont">
+                            <div id = "switch1" class = "switch">
+                                <p>I</p>
+                            </div>
+                        </div>
+                        <p>AUTO</p>
+                    </div>
+
+                    <div class="switch-text-cont">
+                        <div id="switch2-cont" class="switch-cont">
+                            <div id = "switch2" class = "switch">
+                                <p>I</p>
+                            </div>
+                        </div>
+                        <p>HOLD</p>
+                    </div>
+
+                    <div class="switch-text-cont">
+                        <div id="switch3-cont" class="switch-cont">
+                            <div id = "switch3" class = "switch">
+                                <p>I</p>
+                            </div>
+                        </div>
+                        <p>PWR</p>
+                    </div>
+                </div>
+                <div id = "inner-map-cont">
+                    <div id ="map" class="div1"></div>
+                    <div id ="map-overlay">
+                        <div id="map-overlay-inner-div" class="glass-card">
+                            <p>MODE: <span id="mode-txt" class="map-overlay-span">IDLE</span></p>
+                            <p>DIST: <span id="dist-txt" class="map-overlay-span">-</span></p>
+                            <p>POS: <span id="pos-txt" class="map-overlay-span">-</span></p>
+                        </div>
+                        <p id="map-help-txt"></p>
+                        <p id="err-txt-map"></p>
+                        <div id="curr-coords-box" class="glass-card"><p>(<span></span>,<span></span>)</p></div>
+                        
+                    </div>
+                    <div id="map-btns">
+                        <button class="hold-button"id="clear-map">
+                            <span class="button-text">Hold to Clear All Waypoints</span>
+                            <div class="progress-bar" id="prg1"></div>
+                        </button>
+                        <button class="hold-button" id="compute-path">
+                            <span class="button-text">Hold to Compute Path</span>
+                            <div class="progress-bar" id="prg3"></div>
+                        </button>
+                        <button class="hold-button" id="send-btn">
+                            <span class="button-text">Hold to Send Waypoints</span>
+                            <div class="progress-bar" id="prg2"></div>
+                        </button>
+                    </div>
+                </div>
+        </div>
+        <div class="divider"></div>
+        <div id="bottom-container">
+            <div id="mstr-cont-1">
+                <div id="info-container" class="glass-card">
+                    <h2>Information</h2>
+                    <div id="heading-track-container">
+                        <div id="outer-thrust-per-cont">
+                            <h3 id='thrust-cont-head1'>L | R</h3>
+                            <div id="thrust-bars-cont">
+                                <div id="left-thrust-bar-cont" class='thrust-bar-cont'>
+                                    <div class='fixed-thrust-bar'>
+                                        <div id="upr-l-thrust-bar" class="thrust-bar"></div>
+                                    </div>
+                                    <p><span id="l-thrust-per">-</span>%<p>
+                                    <div class='fixed-thrust-bar'>   
+                                        <div id="lwr-l-thrust-bar" class="thrust-bar"></div>
+                                    </div>
+                                </div>
+                                <div id="thrust-divider"></div>
+                                <div id="right-thrust-bar-cont" class='thrust-bar-cont'>
+                                    <div class='fixed-thrust-bar'>
+                                        <div id="upr-r-thrust-bar" class="thrust-bar"></div>
+                                    </div>
+                                    <p><span id="r-thrust-per">-</span>%<p>
+                                    <div class='fixed-thrust-bar'>
+                                        <div id="lwr-r-thrust-bar" class="thrust-bar"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <h3 id='thrust-cont-head2'>Thrust</h3>
+                        </div>
+
+                        <div id="boat-graphic-cont">
+                            <p id="tar-heading-txt"></p>
+                            <p id="heading-txt"></p>
+                            <div id="heading-circ-cont"></div>
+                            <div id="outer-boat-graphic">
+                                <div id="inner-boat-graphic"></div>
+                            </div>
+                            <p id="tar-dist-txt"></p>
+                        </div>
+                        <button id="download-csv-btn" class="glass-card">Download CSV</button>
+                        <div id="readouts-cont">
+                            <div id="charge-cont">
+                                <h4>Battery Charge</h4>    
+                                <div id="charge">
+                                    <p id="chrg-lvl">-%</p>
+                                    <div id="charge-bars-cont">
+                                        <div id="charge-bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul>
+                                <li id="speed"><b>Speed:</b>&nbsp;<span id="speed-txt">-</span>m/s</li>
+                                <li id="accel"><b>Accel:</b>&nbsp;<span id="accel-txt">-</span>m/s^2</li>
+                                <li id="roll"><b>Roll:</b>&nbsp;&nbsp;<span id="roll-txt">-</span>deg</li>
+                                <li id="pitch"><b>Pitch:</b>&nbsp;<span id="pitch-txt">-</span>deg</li>
+                                <li id="omega"><b>Ω:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="omega-txt">-</span>deg/s</li>
+                            </ul>
+                        </div>   
+                    </div>
+                </div>  
+            </div>
+            <div id="mstr-cont-2">
+                <div id="controls-container">
+                    <div id="inner-controls-cont" class="button-container glass-card" tabindex="-1">
+                        <div>
+                            <div id="control-header">
+                                <h2 class="test">Steering</h2>
+                                <img id='keyboard-icon' src="/static/images/keyboard-icon.png">
+                            </div>
+                            <div id="dir-cntrl-container">
+                                <div class="rotate-btn" >
+                                    <button id="left" class="control-btn"><span>LEFT</span></button>
+                                </div>
+                                <div id="fwd-stop-bckwd">
+                                    <button id="forward" class="control-btn">FWD</button>
+                                    <button id="stop" class="control-btn">HOLD</button>
+                                    <button id="backward" class="control-btn">BCK</button>
+                                </div>
+                                <div class="rotate-btn">
+                                    <button id="right" class="control-btn">RIGHT</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="speed-mstr-cont">
+                            <p id="lim-header-txt"><b>PWR<br>LIM</b></p>
+                            <div id="speed-limiter">
+                                <div id="speed-box">
+                                    <div id="speed-box-handle"></div>
+                                    <p id="speed-lim-text">-%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button-container glass-card">
+                        <div id="winch-header">
+                            <h2>Winch</h2>
+                            <img src="/static/images/settings.png" id="winch-settings-icon">
+                        </div>
+                        
+                        <div id="winch-controls">
+                            <div id="depth-val-cont">
+                                <p>Depth: <span id="depth-val">-</span> m</p>
+                            </div>
+                            <button id="winch-up" class="control-btn">UP</button>
+                            <button id="winch-stop" class="control-btn">STOP</button>
+                            <button id="winch-down" class="control-btn">DN</button>
+                        </div>
+                    </div>
+                    <p id="key-warn-txt" class="hidden">KEY CNTRL.</p>
+                </div>
+            </div>
+            <div id="winch-settings-menu" class="glass-card">
+                <div id="winch-settings-top-bar">
+                    <h2>Winch Settings</h2>
+                    <div>
+                        <button id='winch-settings-send'>SEND</button>
+                        <button id='winch-settings-stop'>STOP</button>
+                    </div>
+                    <div class="close-btn" id="winch-settings-close-btn">
+                        <img class="redX" src="/static/images/redX.png">
+                    </div>
+                    
+                </div>
+                <div id="inner-winch-settings-cont">
+                    <div id="winch-settings-values-cont" class="glass-card">
+                        <h3>d(t) = A•|sin(&pi;/T•t)| + O</h3>
+                        <div class="winch-settings-input-cont glass-card">
+                            <p>A =&nbsp;</p>
+                            <input type="number" class="entry-input" id="winch-A-input">
+                            <p>&nbsp m</p>
+                        </div>
+                        <div class="winch-settings-input-cont glass-card">
+                            <p>T =&nbsp;</p>
+                            <input type="number" class="entry-input" id="winch-T-input">
+                            <p>&nbsp; s</p>
+                        </div>
+                        <div class="winch-settings-input-cont glass-card">
+                            <p>O =&nbsp;</p>
+                            <input type="number" class="entry-input" id="winch-O-input">
+                            <p>&nbsp;cm</p>
+                        </div>
+                    </div>
+                    <div id="winch-settings-graph-cont">
+                        <canvas id="winch-graph"></canvas>
+                        <p id="timescale-txt">1x</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="graphs-grid"></div>
+    </div>
+
+    <div id="settings-menu" class="glass-card">
+        <div id="settings-top-bar">
+            <h1>Settings</h1>
+            <div class="close-btn" id="settings-close-btn">
+                <img id="settings-close" class="redX" src="/static/images/redX.png">
+            </div>
+        </div>
+        <div id="inner-settings-cont">
+            <h3>Appearance</h3>
+            <div id="settings-appearance" class="settings-block">
+                <p>Dark Mode</p>
+                <label class="horz-switch">
+                    <input type="checkbox" id="dark-mode">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <h3>Map Settings</h3>       
+            <div id="settings-map" class="settings-block">
+                <div class="h-settings-entry">
+                    <p>Manual Waypoint Mode</p>
+                    <label class="horz-switch">
+                        <input type="checkbox" id="nav-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="v-settings-entry">
+                    <p>Winch Deployment Depth</p>
+                    <div id="winch-depth-inputs">
+                        <input type="number" class="entry-input" id="desired-depth" placeholder="30">
+                        <p>m</p>
+                        <button id="set-depth">Set</button>
+                    </div>
+                </div>
+                <div class="v-settings-entry">
+                    <p>Base Station Coordinates</p>
+                    <div id="base-coords-inputs">
+                        <input type="number" class="entry-input" id="base-lat" placeholder="Latitude">
+                        <input type="number" class="entry-input" id="base-lon" placeholder="Longitude">
+                        <button id="set-base-coords">Set</button>
+                        <button id="choose-base-coords-map">Select</button>
+                    </div>
+                </div>   
+                <div class="v-settings-entry">
+                    <p>Restore Previous Waypoints</p>
+                    <button id="restore-waypoints">Restore</button>
+                </div> 
+            </div>
+
+            <h3>PID Gains</h3>
+            <div id="gain-adjustment-cont">
+                <div id="inner-gain-adjustment-cont">
+                    <h4>Heading</h4>
+                    <div id="heading-gains" class="gain-sliders-cont"></div>
+                    <h4>Position</h4>
+                    <div id="position-gains" class="gain-sliders-cont"></div>
+                </div>
+                <div id="gain-divider-line"></div>
+                <div id="pid-btn-cont">
+                    <button id="send-gains">SET</button>
+                    <button id="restore-gains">REVERT</button>
+                </div>
+            </div>
+            <h3>Additional Settings</h3>
+            <div id="settings-server" class="settings-block">
+                <div class="v-settings-entry">
+                    <p>Hold Radius</p>
+                    <div class="h-settings-entry">
+                        <input type="number" class="entry-input" id="hold-radius-input" placeholder="400 (mm)">
+                        <button id="set-hold-radius">Set</button>
+                    </div>
+                </div>
+                <div class="spacer-div"></div>
+                <div class="h-settings-entry">
+                    <p>Enable Auto Return</p>
+                    <label class="horz-switch">
+                        <input type="checkbox" id="auto-return">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="spacer-div"></div>
+                <div class="v-settings-entry">
+                    <p>Restart WebServer</p>
+                    <button id="restart-webserver">Restart</button>
+                </div> 
+            </div>
+            <h3>Reported Errors</h3>
+            <div id="settings-errors" class="glass-card">
+
+            </div>
+        </div>
+    </div>
+
+    <div id="context-menu" class="hidden glass-card">
+        <ul>
+            <li id="menu-remove">Remove Marker</li>
+            <li id="menu-move">Move Marker</li>
+            <li id="menu-edit">Edit Coordinates</li>
+            <li id="menu-loop">Create Loop</li>
+            <li id="menu-close">Close</li>
+        </ul>
+    </div>
+
+    <div id="edit-coords" class="hidden">
+        <h3>Edit Coordinates</h3>
+        <label for="edit-lat">Latitude:</label>
+        <input type="number" id="edit-lat">
+        <label for="edit-lon">Longitude:</label>
+        <input type="number" id="edit-lon">
+        <button id="save-coords-btn">Save Changes</button>
+    </div>
+
+    <div id="credits-div" class="glass-card">
+        <h2>Credits</h2>
+        <h3 id="credits-subheader">2026 Mechtronics Capstone Team</h3>
+        <div class="close-btn" id="credits-close-btn">
+                <img id="credits-close" class="redX" src="/static/images/redX.png">
+        </div>
+        <div id="credits-inner-div">
+            <div id="logan" class="profile glass-card">
+                <div class="profile-img" id="logan-img"></div>
+                <div class="profile-divider"></div>
+                <h3>Logan Almerez</h3>
+                <p><b>Electrical</b> - PCB Design<br><b>Software</b> - Path Finding</p>
+            </div>
+            <div id="giang" class="profile glass-card">
+                <div class="profile-img" id="giang-img"></div>
+                <div class="profile-divider"></div>
+                <h3>Giang Pham</h3>
+                <p><b>Mechanical</b> - Winch Design<br><b>Electrical</b> - Wiring</p>
+            </div>
+            <div id="rowan" class="profile glass-card">
+                <div class="profile-img" id="rowan-img"></div>
+                <div class="profile-divider"></div>
+                <h3>Rowan Newell</h3>
+                <p><b>Mechanical</b> - Water Tightness</p>
+            </div>
+            <div id="benjamin" class="profile glass-card">
+                <div class="profile-img" id="benjamin-img"></div>
+                <div class="profile-divider"></div>
+                <h3>Benjamin Grigsby</h3>
+                <p><b>Software</b> - Webserver / Control</p>
+            </div>
+        </div>
+        <h3>Special Thanks to: Professor Chung and Zach Taylor</h3>
+    </div>
+</body>
+</html>
