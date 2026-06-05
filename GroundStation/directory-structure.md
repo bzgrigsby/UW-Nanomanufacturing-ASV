@@ -1,0 +1,2000 @@
+.
+├── Boat
+│   ├── boat_communication.py
+│   ├── boat_state.py
+│   ├── definition.py
+│   ├── main.py
+│   ├── nav.py
+│   ├── PID_.py
+│   └── sketch.ino
+├── Capstone Working Boat Code
+│   ├── boat_communication.py
+│   ├── boat_state.py
+│   ├── definition.py
+│   ├── main.py
+│   ├── nav.py
+│   ├── PID_.py
+│   └── sketch.ino
+├── directory-structure.md
+├── Ground Station
+│   ├── __pycache__
+│   │   ├── app.cpython-313.pyc
+│   │   ├── app.cpython-314.pyc
+│   │   ├── comm.cpython-313.pyc
+│   │   ├── comm.cpython-314.pyc
+│   │   ├── config.cpython-314.pyc
+│   │   ├── intercomm.cpython-313.pyc
+│   │   ├── lora_setup_actual.cpython-313.pyc
+│   │   ├── lora_setup.cpython-313.pyc
+│   │   ├── lora_setup.cpython-314.pyc
+│   │   ├── telem.cpython-313.pyc
+│   │   └── telem.cpython-314.pyc
+│   ├── app.py
+│   ├── boat_telemetry_log.csv
+│   ├── comm.py
+│   ├── config.json
+│   ├── intercomm.py
+│   ├── launch_webserver.sh
+│   ├── lora_setup.py
+│   ├── radio_rfm9x.py
+│   ├── static
+│   │   ├── css
+│   │   │   ├── main.css
+│   │   │   ├── switch.css
+│   │   │   └── winch.css
+│   │   ├── images
+│   │   │   ├── antenna.png
+│   │   │   ├── benjamin.jpg
+│   │   │   ├── BoatIcon.png
+│   │   │   ├── circle.png
+│   │   │   ├── close-btn.png
+│   │   │   ├── fwd-btn.png
+│   │   │   ├── giang.jpg
+│   │   │   ├── GroundStation.png
+│   │   │   ├── keyboard-icon.png
+│   │   │   ├── logan.jpg
+│   │   │   ├── redX.png
+│   │   │   ├── reset-icon.png
+│   │   │   ├── rowan.jpg
+│   │   │   ├── settings.png
+│   │   │   ├── stop-btn.png
+│   │   │   ├── uwLogo.png
+│   │   │   └── webIcon.png
+│   │   ├── js
+│   │   │   ├── main.js
+│   │   │   ├── settings.js
+│   │   │   └── winch.js
+│   │   └── vendor
+│   │       ├── Chart.js-master
+│   │       │   ├── auto
+│   │       │   │   ├── auto.cjs
+│   │       │   │   ├── auto.d.ts
+│   │       │   │   ├── auto.js
+│   │       │   │   └── package.json
+│   │       │   ├── composer.json
+│   │       │   ├── docs
+│   │       │   │   ├── axes
+│   │       │   │   │   ├── _common_ticks.md
+│   │       │   │   │   ├── _common.md
+│   │       │   │   │   ├── cartesian
+│   │       │   │   │   │   ├── _common_ticks.md
+│   │       │   │   │   │   ├── _common.md
+│   │       │   │   │   │   ├── category.md
+│   │       │   │   │   │   ├── index.md
+│   │       │   │   │   │   ├── linear.md
+│   │       │   │   │   │   ├── logarithmic.md
+│   │       │   │   │   │   ├── time.md
+│   │       │   │   │   │   └── timeseries.md
+│   │       │   │   │   ├── index.md
+│   │       │   │   │   ├── labelling.md
+│   │       │   │   │   ├── radial
+│   │       │   │   │   │   ├── index.md
+│   │       │   │   │   │   └── linear.md
+│   │       │   │   │   └── styling.md
+│   │       │   │   ├── charts
+│   │       │   │   │   ├── area.md
+│   │       │   │   │   ├── bar.md
+│   │       │   │   │   ├── bubble.md
+│   │       │   │   │   ├── doughnut.md
+│   │       │   │   │   ├── line.md
+│   │       │   │   │   ├── mixed.md
+│   │       │   │   │   ├── polar.md
+│   │       │   │   │   ├── radar.md
+│   │       │   │   │   └── scatter.md
+│   │       │   │   ├── configuration
+│   │       │   │   │   ├── animations.md
+│   │       │   │   │   ├── canvas-background.md
+│   │       │   │   │   ├── decimation.md
+│   │       │   │   │   ├── device-pixel-ratio.md
+│   │       │   │   │   ├── elements.md
+│   │       │   │   │   ├── index.md
+│   │       │   │   │   ├── interactions.md
+│   │       │   │   │   ├── layout.md
+│   │       │   │   │   ├── legend.md
+│   │       │   │   │   ├── locale.md
+│   │       │   │   │   ├── responsive.md
+│   │       │   │   │   ├── subtitle.md
+│   │       │   │   │   ├── title.md
+│   │       │   │   │   └── tooltip.md
+│   │       │   │   ├── developers
+│   │       │   │   │   ├── api.md
+│   │       │   │   │   ├── axes.md
+│   │       │   │   │   ├── charts.md
+│   │       │   │   │   ├── contributing.md
+│   │       │   │   │   ├── destroy_flowchart.png
+│   │       │   │   │   ├── event_flowchart.png
+│   │       │   │   │   ├── index.md
+│   │       │   │   │   ├── init_flowchart.png
+│   │       │   │   │   ├── plugin_flowcharts.drawio
+│   │       │   │   │   ├── plugins.md
+│   │       │   │   │   ├── publishing.md
+│   │       │   │   │   ├── render_flowchart.png
+│   │       │   │   │   ├── scale_flowchart.png
+│   │       │   │   │   ├── update_flowchart.png
+│   │       │   │   │   └── updates.md
+│   │       │   │   ├── general
+│   │       │   │   │   ├── accessibility.md
+│   │       │   │   │   ├── colors-plugin-palette.png
+│   │       │   │   │   ├── colors.md
+│   │       │   │   │   ├── data-structures.md
+│   │       │   │   │   ├── fonts.md
+│   │       │   │   │   ├── options.md
+│   │       │   │   │   ├── padding.md
+│   │       │   │   │   └── performance.md
+│   │       │   │   ├── getting-started
+│   │       │   │   │   ├── index.md
+│   │       │   │   │   ├── installation.md
+│   │       │   │   │   ├── integration.md
+│   │       │   │   │   ├── preview.png
+│   │       │   │   │   ├── usage-1.png
+│   │       │   │   │   ├── usage-2.png
+│   │       │   │   │   ├── usage-3.png
+│   │       │   │   │   ├── usage-4.png
+│   │       │   │   │   ├── usage-5.png
+│   │       │   │   │   ├── usage-6.png
+│   │       │   │   │   ├── usage-7.png
+│   │       │   │   │   ├── usage-8.png
+│   │       │   │   │   ├── usage.md
+│   │       │   │   │   └── using-from-node-js.md
+│   │       │   │   ├── index.md
+│   │       │   │   ├── migration
+│   │       │   │   │   ├── v3-migration.md
+│   │       │   │   │   └── v4-migration.md
+│   │       │   │   ├── package.json
+│   │       │   │   ├── samples
+│   │       │   │   │   ├── advanced
+│   │       │   │   │   │   ├── data-decimation.md
+│   │       │   │   │   │   ├── derived-axis-type.md
+│   │       │   │   │   │   ├── derived-chart-type.md
+│   │       │   │   │   │   ├── linear-gradient.md
+│   │       │   │   │   │   ├── programmatic-events.md
+│   │       │   │   │   │   ├── progress-bar.md
+│   │       │   │   │   │   └── radial-gradient.md
+│   │       │   │   │   ├── animations
+│   │       │   │   │   │   ├── delay.md
+│   │       │   │   │   │   ├── drop.md
+│   │       │   │   │   │   ├── loop.md
+│   │       │   │   │   │   ├── progressive-line-easing.md
+│   │       │   │   │   │   └── progressive-line.md
+│   │       │   │   │   ├── area
+│   │       │   │   │   │   ├── line-boundaries.md
+│   │       │   │   │   │   ├── line-datasets.md
+│   │       │   │   │   │   ├── line-drawtime.md
+│   │       │   │   │   │   ├── line-stacked.md
+│   │       │   │   │   │   └── radar.md
+│   │       │   │   │   ├── bar
+│   │       │   │   │   │   ├── border-radius.md
+│   │       │   │   │   │   ├── floating.md
+│   │       │   │   │   │   ├── horizontal.md
+│   │       │   │   │   │   ├── stacked-groups.md
+│   │       │   │   │   │   ├── stacked.md
+│   │       │   │   │   │   └── vertical.md
+│   │       │   │   │   ├── information.md
+│   │       │   │   │   ├── legend
+│   │       │   │   │   │   ├── events.md
+│   │       │   │   │   │   ├── html.md
+│   │       │   │   │   │   ├── point-style.md
+│   │       │   │   │   │   ├── position.md
+│   │       │   │   │   │   └── title.md
+│   │       │   │   │   ├── line
+│   │       │   │   │   │   ├── interpolation.md
+│   │       │   │   │   │   ├── line.md
+│   │       │   │   │   │   ├── multi-axis.md
+│   │       │   │   │   │   ├── point-styling.md
+│   │       │   │   │   │   ├── segments.md
+│   │       │   │   │   │   ├── stepped.md
+│   │       │   │   │   │   └── styling.md
+│   │       │   │   │   ├── other-charts
+│   │       │   │   │   │   ├── bubble.md
+│   │       │   │   │   │   ├── combo-bar-line.md
+│   │       │   │   │   │   ├── doughnut.md
+│   │       │   │   │   │   ├── multi-series-pie.md
+│   │       │   │   │   │   ├── pie.md
+│   │       │   │   │   │   ├── polar-area-center-labels.md
+│   │       │   │   │   │   ├── polar-area.md
+│   │       │   │   │   │   ├── radar-skip-points.md
+│   │       │   │   │   │   ├── radar.md
+│   │       │   │   │   │   ├── scatter-multi-axis.md
+│   │       │   │   │   │   ├── scatter.md
+│   │       │   │   │   │   └── stacked-bar-line.md
+│   │       │   │   │   ├── plugins
+│   │       │   │   │   │   ├── chart-area-border.md
+│   │       │   │   │   │   ├── doughnut-empty-state.md
+│   │       │   │   │   │   └── quadrants.md
+│   │       │   │   │   ├── scale-options
+│   │       │   │   │   │   ├── center.md
+│   │       │   │   │   │   ├── grid.md
+│   │       │   │   │   │   ├── ticks.md
+│   │       │   │   │   │   └── titles.md
+│   │       │   │   │   ├── scales
+│   │       │   │   │   │   ├── linear-min-max-suggested.md
+│   │       │   │   │   │   ├── linear-min-max.md
+│   │       │   │   │   │   ├── linear-step-size.md
+│   │       │   │   │   │   ├── log.md
+│   │       │   │   │   │   ├── stacked.md
+│   │       │   │   │   │   ├── time-combo.md
+│   │       │   │   │   │   ├── time-line.md
+│   │       │   │   │   │   └── time-max-span.md
+│   │       │   │   │   ├── scriptable
+│   │       │   │   │   │   ├── bar.md
+│   │       │   │   │   │   ├── bubble.md
+│   │       │   │   │   │   ├── line.md
+│   │       │   │   │   │   ├── pie.md
+│   │       │   │   │   │   ├── polar.md
+│   │       │   │   │   │   └── radar.md
+│   │       │   │   │   ├── subtitle
+│   │       │   │   │   │   └── basic.md
+│   │       │   │   │   ├── title
+│   │       │   │   │   │   └── alignment.md
+│   │       │   │   │   ├── tooltip
+│   │       │   │   │   │   ├── content.md
+│   │       │   │   │   │   ├── html.md
+│   │       │   │   │   │   ├── interactions.md
+│   │       │   │   │   │   ├── point-style.md
+│   │       │   │   │   │   └── position.md
+│   │       │   │   │   └── utils.md
+│   │       │   │   └── scripts
+│   │       │   │       ├── analyzer.js
+│   │       │   │       ├── components.js
+│   │       │   │       ├── derived-bubble.js
+│   │       │   │       ├── helpers.js
+│   │       │   │       ├── log2.js
+│   │       │   │       ├── register.js
+│   │       │   │       └── utils.js
+│   │       │   ├── helpers
+│   │       │   │   ├── helpers.cjs
+│   │       │   │   ├── helpers.d.ts
+│   │       │   │   ├── helpers.js
+│   │       │   │   └── package.json
+│   │       │   ├── karma.conf.cjs
+│   │       │   ├── LICENSE.md
+│   │       │   ├── MAINTAINING.md
+│   │       │   ├── package.json
+│   │       │   ├── pnpm-lock.yaml
+│   │       │   ├── pnpm-workspace.yaml
+│   │       │   ├── README.md
+│   │       │   ├── rollup.config.js
+│   │       │   ├── scripts
+│   │       │   │   ├── deploy-docs.sh
+│   │       │   │   ├── docs-config.sh
+│   │       │   │   ├── publish.sh
+│   │       │   │   ├── sample-redirect-template.html
+│   │       │   │   └── utils.sh
+│   │       │   ├── src
+│   │       │   │   ├── controllers
+│   │       │   │   │   ├── controller.bar.js
+│   │       │   │   │   ├── controller.bubble.js
+│   │       │   │   │   ├── controller.doughnut.js
+│   │       │   │   │   ├── controller.line.js
+│   │       │   │   │   ├── controller.pie.js
+│   │       │   │   │   ├── controller.polarArea.js
+│   │       │   │   │   ├── controller.radar.js
+│   │       │   │   │   ├── controller.scatter.js
+│   │       │   │   │   └── index.js
+│   │       │   │   ├── core
+│   │       │   │   │   ├── core.adapters.ts
+│   │       │   │   │   ├── core.animation.js
+│   │       │   │   │   ├── core.animations.defaults.js
+│   │       │   │   │   ├── core.animations.js
+│   │       │   │   │   ├── core.animator.js
+│   │       │   │   │   ├── core.config.js
+│   │       │   │   │   ├── core.controller.js
+│   │       │   │   │   ├── core.datasetController.js
+│   │       │   │   │   ├── core.defaults.js
+│   │       │   │   │   ├── core.element.ts
+│   │       │   │   │   ├── core.interaction.js
+│   │       │   │   │   ├── core.layouts.defaults.js
+│   │       │   │   │   ├── core.layouts.js
+│   │       │   │   │   ├── core.plugins.js
+│   │       │   │   │   ├── core.registry.js
+│   │       │   │   │   ├── core.scale.autoskip.js
+│   │       │   │   │   ├── core.scale.defaults.js
+│   │       │   │   │   ├── core.scale.js
+│   │       │   │   │   ├── core.ticks.js
+│   │       │   │   │   ├── core.typedRegistry.js
+│   │       │   │   │   └── index.ts
+│   │       │   │   ├── elements
+│   │       │   │   │   ├── element.arc.ts
+│   │       │   │   │   ├── element.bar.js
+│   │       │   │   │   ├── element.line.js
+│   │       │   │   │   ├── element.point.ts
+│   │       │   │   │   └── index.js
+│   │       │   │   ├── helpers
+│   │       │   │   │   ├── helpers.canvas.ts
+│   │       │   │   │   ├── helpers.collection.ts
+│   │       │   │   │   ├── helpers.color.ts
+│   │       │   │   │   ├── helpers.config.ts
+│   │       │   │   │   ├── helpers.config.types.ts
+│   │       │   │   │   ├── helpers.core.ts
+│   │       │   │   │   ├── helpers.curve.ts
+│   │       │   │   │   ├── helpers.dataset.ts
+│   │       │   │   │   ├── helpers.dom.ts
+│   │       │   │   │   ├── helpers.easing.ts
+│   │       │   │   │   ├── helpers.extras.ts
+│   │       │   │   │   ├── helpers.interpolation.ts
+│   │       │   │   │   ├── helpers.intl.ts
+│   │       │   │   │   ├── helpers.math.ts
+│   │       │   │   │   ├── helpers.options.ts
+│   │       │   │   │   ├── helpers.rtl.ts
+│   │       │   │   │   ├── helpers.segment.js
+│   │       │   │   │   └── index.ts
+│   │       │   │   ├── index.ts
+│   │       │   │   ├── index.umd.ts
+│   │       │   │   ├── platform
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── platform.base.js
+│   │       │   │   │   ├── platform.basic.js
+│   │       │   │   │   └── platform.dom.js
+│   │       │   │   ├── plugins
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── plugin.colors.ts
+│   │       │   │   │   ├── plugin.decimation.js
+│   │       │   │   │   ├── plugin.filler
+│   │       │   │   │   │   ├── filler.drawing.js
+│   │       │   │   │   │   ├── filler.helper.js
+│   │       │   │   │   │   ├── filler.options.js
+│   │       │   │   │   │   ├── filler.segment.js
+│   │       │   │   │   │   ├── filler.target.js
+│   │       │   │   │   │   ├── filler.target.stack.js
+│   │       │   │   │   │   ├── index.js
+│   │       │   │   │   │   └── simpleArc.js
+│   │       │   │   │   ├── plugin.legend.js
+│   │       │   │   │   ├── plugin.subtitle.js
+│   │       │   │   │   ├── plugin.title.js
+│   │       │   │   │   └── plugin.tooltip.js
+│   │       │   │   ├── scales
+│   │       │   │   │   ├── index.js
+│   │       │   │   │   ├── scale.category.js
+│   │       │   │   │   ├── scale.linear.js
+│   │       │   │   │   ├── scale.linearbase.js
+│   │       │   │   │   ├── scale.logarithmic.js
+│   │       │   │   │   ├── scale.radialLinear.js
+│   │       │   │   │   ├── scale.time.js
+│   │       │   │   │   └── scale.timeseries.js
+│   │       │   │   ├── types
+│   │       │   │   │   ├── animation.d.ts
+│   │       │   │   │   ├── basic.d.ts
+│   │       │   │   │   ├── color.d.ts
+│   │       │   │   │   ├── geometric.d.ts
+│   │       │   │   │   ├── index.d.ts
+│   │       │   │   │   ├── layout.d.ts
+│   │       │   │   │   └── utils.d.ts
+│   │       │   │   └── types.ts
+│   │       │   ├── test
+│   │       │   │   ├── BasicChartWebWorker.js
+│   │       │   │   ├── fixtures
+│   │       │   │   │   ├── controller.bar
+│   │       │   │   │   │   ├── aligned-pixels.js
+│   │       │   │   │   │   ├── aligned-pixels.png
+│   │       │   │   │   │   ├── backgroundColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── loopable.js
+│   │       │   │   │   │   │   ├── loopable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── bar-animation-hide-show.js
+│   │       │   │   │   │   ├── bar-animation-hide-show.png
+│   │       │   │   │   │   ├── bar-base-value.js
+│   │       │   │   │   │   ├── bar-base-value.png
+│   │       │   │   │   │   ├── bar-default-begin-at-zero.js
+│   │       │   │   │   │   ├── bar-default-begin-at-zero.png
+│   │       │   │   │   │   ├── bar-thickness-absolute.json
+│   │       │   │   │   │   ├── bar-thickness-absolute.png
+│   │       │   │   │   │   ├── bar-thickness-flex-offset.json
+│   │       │   │   │   │   ├── bar-thickness-flex-offset.png
+│   │       │   │   │   │   ├── bar-thickness-flex-single-reverse.json
+│   │       │   │   │   │   ├── bar-thickness-flex-single-reverse.png
+│   │       │   │   │   │   ├── bar-thickness-flex-single.json
+│   │       │   │   │   │   ├── bar-thickness-flex-single.png
+│   │       │   │   │   │   ├── bar-thickness-flex.json
+│   │       │   │   │   │   ├── bar-thickness-flex.png
+│   │       │   │   │   │   ├── bar-thickness-max.json
+│   │       │   │   │   │   ├── bar-thickness-max.png
+│   │       │   │   │   │   ├── bar-thickness-min-interval-multi.json
+│   │       │   │   │   │   ├── bar-thickness-min-interval-multi.png
+│   │       │   │   │   │   ├── bar-thickness-min-interval.json
+│   │       │   │   │   │   ├── bar-thickness-min-interval.png
+│   │       │   │   │   │   ├── bar-thickness-multiple.json
+│   │       │   │   │   │   ├── bar-thickness-multiple.png
+│   │       │   │   │   │   ├── bar-thickness-no-overlap.json
+│   │       │   │   │   │   ├── bar-thickness-no-overlap.png
+│   │       │   │   │   │   ├── bar-thickness-offset.json
+│   │       │   │   │   │   ├── bar-thickness-offset.png
+│   │       │   │   │   │   ├── bar-thickness-per-dataset-stacked.json
+│   │       │   │   │   │   ├── bar-thickness-per-dataset-stacked.png
+│   │       │   │   │   │   ├── bar-thickness-per-dataset.json
+│   │       │   │   │   │   ├── bar-thickness-per-dataset.png
+│   │       │   │   │   │   ├── bar-thickness-reverse.json
+│   │       │   │   │   │   ├── bar-thickness-reverse.png
+│   │       │   │   │   │   ├── bar-thickness-single-xy.json
+│   │       │   │   │   │   ├── bar-thickness-single-xy.png
+│   │       │   │   │   │   ├── bar-thickness-single.json
+│   │       │   │   │   │   ├── bar-thickness-single.png
+│   │       │   │   │   │   ├── bar-thickness-stacked.json
+│   │       │   │   │   │   ├── bar-thickness-stacked.png
+│   │       │   │   │   │   ├── baseLine
+│   │       │   │   │   │   │   ├── bottom.js
+│   │       │   │   │   │   │   ├── bottom.png
+│   │       │   │   │   │   │   ├── left.js
+│   │       │   │   │   │   │   ├── left.png
+│   │       │   │   │   │   │   ├── mid-x.js
+│   │       │   │   │   │   │   ├── mid-x.png
+│   │       │   │   │   │   │   ├── mid-y.js
+│   │       │   │   │   │   │   ├── mid-y.png
+│   │       │   │   │   │   │   ├── right.js
+│   │       │   │   │   │   │   ├── right.png
+│   │       │   │   │   │   │   ├── top.js
+│   │       │   │   │   │   │   ├── top.png
+│   │       │   │   │   │   │   ├── value-x.js
+│   │       │   │   │   │   │   ├── value-x.png
+│   │       │   │   │   │   │   ├── value-y.js
+│   │       │   │   │   │   │   └── value-y.png
+│   │       │   │   │   │   ├── borderColor
+│   │       │   │   │   │   │   ├── border+dpr.js
+│   │       │   │   │   │   │   ├── border+dpr.png
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderRadius
+│   │       │   │   │   │   │   ├── border-radius-stacked-number-mixed-chart.js
+│   │       │   │   │   │   │   ├── border-radius-stacked-number-mixed-chart.png
+│   │       │   │   │   │   │   ├── border-radius-stacked-number-with-order.js
+│   │       │   │   │   │   │   ├── border-radius-stacked-number-with-order.png
+│   │       │   │   │   │   │   ├── border-radius-stacked-number.js
+│   │       │   │   │   │   │   ├── border-radius-stacked-number.png
+│   │       │   │   │   │   │   ├── border-radius.js
+│   │       │   │   │   │   │   ├── border-radius.png
+│   │       │   │   │   │   │   ├── no-spacing.js
+│   │       │   │   │   │   │   └── no-spacing.png
+│   │       │   │   │   │   ├── borderSkipped
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── middle.js
+│   │       │   │   │   │   │   ├── middle.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderWidth
+│   │       │   │   │   │   │   ├── indexable-object.js
+│   │       │   │   │   │   │   ├── indexable-object.png
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── negative.js
+│   │       │   │   │   │   │   ├── negative.png
+│   │       │   │   │   │   │   ├── object.js
+│   │       │   │   │   │   │   ├── object.png
+│   │       │   │   │   │   │   ├── scriptable-object.js
+│   │       │   │   │   │   │   ├── scriptable-object.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── chart-area-clip.js
+│   │       │   │   │   │   ├── chart-area-clip.png
+│   │       │   │   │   │   ├── data
+│   │       │   │   │   │   │   ├── object-index-axis-y.js
+│   │       │   │   │   │   │   ├── object-index-axis-y.png
+│   │       │   │   │   │   │   ├── object.js
+│   │       │   │   │   │   │   ├── object.png
+│   │       │   │   │   │   │   ├── parsing.js
+│   │       │   │   │   │   │   └── parsing.png
+│   │       │   │   │   │   ├── floatBar
+│   │       │   │   │   │   │   ├── data-as-objects-horizontal.js
+│   │       │   │   │   │   │   ├── data-as-objects-horizontal.png
+│   │       │   │   │   │   │   ├── data-as-objects.js
+│   │       │   │   │   │   │   ├── data-as-objects.png
+│   │       │   │   │   │   │   ├── float-bar-horizontal.json
+│   │       │   │   │   │   │   ├── float-bar-horizontal.png
+│   │       │   │   │   │   │   ├── float-bar-stacked-horizontal.json
+│   │       │   │   │   │   │   ├── float-bar-stacked-horizontal.png
+│   │       │   │   │   │   │   ├── float-bar-stacked.json
+│   │       │   │   │   │   │   ├── float-bar-stacked.png
+│   │       │   │   │   │   │   ├── float-bar.json
+│   │       │   │   │   │   │   └── float-bar.png
+│   │       │   │   │   │   ├── horizontal-borders.js
+│   │       │   │   │   │   ├── horizontal-borders.png
+│   │       │   │   │   │   ├── minBarLength
+│   │       │   │   │   │   │   ├── horizontal-neg.js
+│   │       │   │   │   │   │   ├── horizontal-neg.png
+│   │       │   │   │   │   │   ├── horizontal-pos.js
+│   │       │   │   │   │   │   ├── horizontal-pos.png
+│   │       │   │   │   │   │   ├── horizontal-stacked-no-overlap.js
+│   │       │   │   │   │   │   ├── horizontal-stacked-no-overlap.png
+│   │       │   │   │   │   │   ├── horizontal-stacked.js
+│   │       │   │   │   │   │   ├── horizontal-stacked.png
+│   │       │   │   │   │   │   ├── horizontal.js
+│   │       │   │   │   │   │   ├── horizontal.png
+│   │       │   │   │   │   │   ├── vertical-neg.js
+│   │       │   │   │   │   │   ├── vertical-neg.png
+│   │       │   │   │   │   │   ├── vertical-pos.js
+│   │       │   │   │   │   │   ├── vertical-pos.png
+│   │       │   │   │   │   │   ├── vertical-stacked-no-overlap.js
+│   │       │   │   │   │   │   ├── vertical-stacked-no-overlap.png
+│   │       │   │   │   │   │   ├── vertical-stacked.js
+│   │       │   │   │   │   │   ├── vertical-stacked.png
+│   │       │   │   │   │   │   ├── vertical.js
+│   │       │   │   │   │   │   └── vertical.png
+│   │       │   │   │   │   ├── not-grouped
+│   │       │   │   │   │   │   ├── mixed.js
+│   │       │   │   │   │   │   ├── mixed.png
+│   │       │   │   │   │   │   ├── on-time.js
+│   │       │   │   │   │   │   └── on-time.png
+│   │       │   │   │   │   ├── skipNull
+│   │       │   │   │   │   │   ├── bar-skip-null-object-data.js
+│   │       │   │   │   │   │   ├── bar-skip-null-object-data.png
+│   │       │   │   │   │   │   ├── bar-skip-null.js
+│   │       │   │   │   │   │   ├── bar-skip-null.png
+│   │       │   │   │   │   │   ├── combinations.js
+│   │       │   │   │   │   │   └── combinations.png
+│   │       │   │   │   │   └── stacking
+│   │       │   │   │   │       ├── issue-9105.js
+│   │       │   │   │   │       ├── issue-9105.png
+│   │       │   │   │   │       ├── logarithmic-strings.js
+│   │       │   │   │   │       ├── logarithmic-strings.png
+│   │       │   │   │   │       ├── logarithmic.js
+│   │       │   │   │   │       ├── logarithmic.png
+│   │       │   │   │   │       ├── order-default.json
+│   │       │   │   │   │       ├── order-default.png
+│   │       │   │   │   │       ├── order-specified.json
+│   │       │   │   │   │       ├── order-specified.png
+│   │       │   │   │   │       ├── remove-dataset.js
+│   │       │   │   │   │       ├── remove-dataset.png
+│   │       │   │   │   │       ├── replace-data.js
+│   │       │   │   │   │       ├── replace-data.png
+│   │       │   │   │   │       ├── stacked-and-multiple-axis.js
+│   │       │   │   │   │       └── stacked-and-multiple-axis.png
+│   │       │   │   │   ├── controller.bubble
+│   │       │   │   │   │   ├── autoPadding-disabled.js
+│   │       │   │   │   │   ├── autoPadding-disabled.png
+│   │       │   │   │   │   ├── clip.js
+│   │       │   │   │   │   ├── clip.png
+│   │       │   │   │   │   ├── hover-radius-zero.js
+│   │       │   │   │   │   ├── hover-radius-zero.png
+│   │       │   │   │   │   ├── padding-update.js
+│   │       │   │   │   │   ├── padding-update.png
+│   │       │   │   │   │   ├── padding.js
+│   │       │   │   │   │   ├── padding.png
+│   │       │   │   │   │   ├── point-style.json
+│   │       │   │   │   │   ├── point-style.png
+│   │       │   │   │   │   ├── radius-data.js
+│   │       │   │   │   │   ├── radius-data.png
+│   │       │   │   │   │   ├── radius-scriptable.js
+│   │       │   │   │   │   └── radius-scriptable.png
+│   │       │   │   │   ├── controller.doughnut
+│   │       │   │   │   │   ├── backgroundColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderAlign
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderDash
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderJoinStyle
+│   │       │   │   │   │   │   ├── bevel-default.js
+│   │       │   │   │   │   │   ├── bevel-default.png
+│   │       │   │   │   │   │   ├── miter.js
+│   │       │   │   │   │   │   ├── miter.png
+│   │       │   │   │   │   │   ├── round.js
+│   │       │   │   │   │   │   └── round.png
+│   │       │   │   │   │   ├── borderRadius
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value-corners.js
+│   │       │   │   │   │   │   ├── value-corners.png
+│   │       │   │   │   │   │   ├── value-large-radius.js
+│   │       │   │   │   │   │   ├── value-large-radius.png
+│   │       │   │   │   │   │   ├── value-small-number.js
+│   │       │   │   │   │   │   └── value-small-number.png
+│   │       │   │   │   │   ├── borderWidth
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── doughnut-animation-hide-last.js
+│   │       │   │   │   │   ├── doughnut-animation-hide-last.png
+│   │       │   │   │   │   ├── doughnut-animation.js
+│   │       │   │   │   │   ├── doughnut-animation.png
+│   │       │   │   │   │   ├── doughnut-border-align-center.json
+│   │       │   │   │   │   ├── doughnut-border-align-center.png
+│   │       │   │   │   │   ├── doughnut-border-align-inner.json
+│   │       │   │   │   │   ├── doughnut-border-align-inner.png
+│   │       │   │   │   │   ├── doughnut-circumference-over-2pi.json
+│   │       │   │   │   │   ├── doughnut-circumference-over-2pi.png
+│   │       │   │   │   │   ├── doughnut-circumference-per-dataset.js
+│   │       │   │   │   │   ├── doughnut-circumference-per-dataset.png
+│   │       │   │   │   │   ├── doughnut-circumference.json
+│   │       │   │   │   │   ├── doughnut-circumference.png
+│   │       │   │   │   │   ├── doughnut-full-to-semi.js
+│   │       │   │   │   │   ├── doughnut-full-to-semi.png
+│   │       │   │   │   │   ├── doughnut-hidden-single.js
+│   │       │   │   │   │   ├── doughnut-hidden-single.png
+│   │       │   │   │   │   ├── doughnut-hidden.js
+│   │       │   │   │   │   ├── doughnut-hidden.png
+│   │       │   │   │   │   ├── doughnut-NaN.js
+│   │       │   │   │   │   ├── doughnut-NaN.png
+│   │       │   │   │   │   ├── doughnut-offset.js
+│   │       │   │   │   │   ├── doughnut-offset.png
+│   │       │   │   │   │   ├── doughnut-outer-radius-percent.js
+│   │       │   │   │   │   ├── doughnut-outer-radius-percent.png
+│   │       │   │   │   │   ├── doughnut-outer-radius-pixels.js
+│   │       │   │   │   │   ├── doughnut-outer-radius-pixels.png
+│   │       │   │   │   │   ├── doughnut-parsing.js
+│   │       │   │   │   │   ├── doughnut-parsing.png
+│   │       │   │   │   │   ├── doughnut-rotation-300.js
+│   │       │   │   │   │   ├── doughnut-rotation-300.png
+│   │       │   │   │   │   ├── doughnut-rotation-circumference-8x8.js
+│   │       │   │   │   │   ├── doughnut-rotation-circumference-8x8.png
+│   │       │   │   │   │   ├── doughnut-rotation-per-dataset.js
+│   │       │   │   │   │   ├── doughnut-rotation-per-dataset.png
+│   │       │   │   │   │   ├── doughnut-set-active-elements.js
+│   │       │   │   │   │   ├── doughnut-set-active-elements.png
+│   │       │   │   │   │   ├── doughnut-spacing-and-offset.js
+│   │       │   │   │   │   ├── doughnut-spacing-and-offset.png
+│   │       │   │   │   │   ├── doughnut-spacing.js
+│   │       │   │   │   │   ├── doughnut-spacing.png
+│   │       │   │   │   │   ├── doughnut-weight.json
+│   │       │   │   │   │   ├── doughnut-weight.png
+│   │       │   │   │   │   ├── event-replay.js
+│   │       │   │   │   │   ├── event-replay.png
+│   │       │   │   │   │   ├── pie-border-align-center.json
+│   │       │   │   │   │   ├── pie-border-align-center.png
+│   │       │   │   │   │   ├── pie-border-align-inner.json
+│   │       │   │   │   │   ├── pie-border-align-inner.png
+│   │       │   │   │   │   ├── pie-circumference.json
+│   │       │   │   │   │   ├── pie-circumference.png
+│   │       │   │   │   │   ├── pie-offset.js
+│   │       │   │   │   │   ├── pie-offset.png
+│   │       │   │   │   │   ├── pie-weight.json
+│   │       │   │   │   │   ├── pie-weight.png
+│   │       │   │   │   │   ├── selfJoin
+│   │       │   │   │   │   │   ├── doughnut.js
+│   │       │   │   │   │   │   ├── doughnut.png
+│   │       │   │   │   │   │   ├── pie.js
+│   │       │   │   │   │   │   └── pie.png
+│   │       │   │   │   │   ├── single-slice-circumference-405.js
+│   │       │   │   │   │   ├── single-slice-circumference-405.png
+│   │       │   │   │   │   ├── single-slice-offset.js
+│   │       │   │   │   │   ├── single-slice-offset.png
+│   │       │   │   │   │   ├── single-slice-opacity.js
+│   │       │   │   │   │   └── single-slice-opacity.png
+│   │       │   │   │   ├── controller.line
+│   │       │   │   │   │   ├── backgroundColor
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderCapStyle
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderColor
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderDash
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderDashOffset
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderJoinStyle
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderWidth
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   ├── value.png
+│   │       │   │   │   │   │   ├── zero.js
+│   │       │   │   │   │   │   └── zero.png
+│   │       │   │   │   │   ├── clip
+│   │       │   │   │   │   │   ├── default-x-max.json
+│   │       │   │   │   │   │   ├── default-x-max.png
+│   │       │   │   │   │   │   ├── default-x-min.json
+│   │       │   │   │   │   │   ├── default-x-min.png
+│   │       │   │   │   │   │   ├── default-x.json
+│   │       │   │   │   │   │   ├── default-x.png
+│   │       │   │   │   │   │   ├── default-y-max.json
+│   │       │   │   │   │   │   ├── default-y-max.png
+│   │       │   │   │   │   │   ├── default-y-min.json
+│   │       │   │   │   │   │   ├── default-y-min.png
+│   │       │   │   │   │   │   ├── default-y.json
+│   │       │   │   │   │   │   ├── default-y.png
+│   │       │   │   │   │   │   ├── false.js
+│   │       │   │   │   │   │   ├── false.png
+│   │       │   │   │   │   │   ├── specified.json
+│   │       │   │   │   │   │   └── specified.png
+│   │       │   │   │   │   ├── cubicInterpolationMode
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── fill
+│   │       │   │   │   │   │   ├── no-border.js
+│   │       │   │   │   │   │   ├── no-border.png
+│   │       │   │   │   │   │   ├── order-default.js
+│   │       │   │   │   │   │   ├── order-default.png
+│   │       │   │   │   │   │   ├── order.js
+│   │       │   │   │   │   │   ├── order.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── issue-8902.js
+│   │       │   │   │   │   ├── issue-8902.png
+│   │       │   │   │   │   ├── non-numeric-y.json
+│   │       │   │   │   │   ├── non-numeric-y.png
+│   │       │   │   │   │   ├── point-style-offscreen-canvas.json
+│   │       │   │   │   │   ├── point-style-offscreen-canvas.png
+│   │       │   │   │   │   ├── point-style.json
+│   │       │   │   │   │   ├── point-style.png
+│   │       │   │   │   │   ├── pointBackgroundColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── pointBorderColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── pointBorderWidth
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── pointStyle
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── radius
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable-to-value.js
+│   │       │   │   │   │   │   ├── scriptable-to-value.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── rotation
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── segments
+│   │       │   │   │   │   │   ├── gap.js
+│   │       │   │   │   │   │   ├── gap.png
+│   │       │   │   │   │   │   ├── gradient.js
+│   │       │   │   │   │   │   ├── gradient.png
+│   │       │   │   │   │   │   ├── range.js
+│   │       │   │   │   │   │   ├── range.png
+│   │       │   │   │   │   │   ├── single.js
+│   │       │   │   │   │   │   ├── single.png
+│   │       │   │   │   │   │   ├── slope.js
+│   │       │   │   │   │   │   ├── slope.png
+│   │       │   │   │   │   │   ├── spanGaps.js
+│   │       │   │   │   │   │   └── spanGaps.png
+│   │       │   │   │   │   ├── showLine
+│   │       │   │   │   │   │   ├── dataset.js
+│   │       │   │   │   │   │   ├── dataset.png
+│   │       │   │   │   │   │   ├── false.js
+│   │       │   │   │   │   │   └── false.png
+│   │       │   │   │   │   └── stacking
+│   │       │   │   │   │       ├── bounds-data.js
+│   │       │   │   │   │       ├── bounds-data.png
+│   │       │   │   │   │       ├── order-default.js
+│   │       │   │   │   │       ├── order-default.png
+│   │       │   │   │   │       ├── order-specified.js
+│   │       │   │   │   │       ├── order-specified.png
+│   │       │   │   │   │       ├── single.js
+│   │       │   │   │   │       ├── single.png
+│   │       │   │   │   │       ├── stacked-scatter.js
+│   │       │   │   │   │       ├── stacked-scatter.png
+│   │       │   │   │   │       ├── updates.js
+│   │       │   │   │   │       └── updates.png
+│   │       │   │   │   ├── controller.polarArea
+│   │       │   │   │   │   ├── angle-array.json
+│   │       │   │   │   │   ├── angle-array.png
+│   │       │   │   │   │   ├── angle-lines.json
+│   │       │   │   │   │   ├── angle-lines.png
+│   │       │   │   │   │   ├── angle-undefined.json
+│   │       │   │   │   │   ├── angle-undefined.png
+│   │       │   │   │   │   ├── backgroundColor
+│   │       │   │   │   │   │   ├── indexable-dataset.js
+│   │       │   │   │   │   │   ├── indexable-dataset.png
+│   │       │   │   │   │   │   ├── indexable-element-options.js
+│   │       │   │   │   │   │   ├── indexable-element-options.png
+│   │       │   │   │   │   │   ├── scriptable-dataset.js
+│   │       │   │   │   │   │   ├── scriptable-dataset.png
+│   │       │   │   │   │   │   ├── scriptable-element-options.js
+│   │       │   │   │   │   │   ├── scriptable-element-options.png
+│   │       │   │   │   │   │   ├── value-dataset.js
+│   │       │   │   │   │   │   ├── value-dataset.png
+│   │       │   │   │   │   │   ├── value-element-options.js
+│   │       │   │   │   │   │   └── value-element-options.png
+│   │       │   │   │   │   ├── border-align-center.json
+│   │       │   │   │   │   ├── border-align-center.png
+│   │       │   │   │   │   ├── border-align-inner.json
+│   │       │   │   │   │   ├── border-align-inner.png
+│   │       │   │   │   │   ├── borderAlign
+│   │       │   │   │   │   │   ├── indexable-dataset.js
+│   │       │   │   │   │   │   ├── indexable-dataset.png
+│   │       │   │   │   │   │   ├── indexable-element-options.js
+│   │       │   │   │   │   │   ├── indexable-element-options.png
+│   │       │   │   │   │   │   ├── scriptable-dataset.js
+│   │       │   │   │   │   │   ├── scriptable-dataset.png
+│   │       │   │   │   │   │   ├── scriptable-element-options.js
+│   │       │   │   │   │   │   ├── scriptable-element-options.png
+│   │       │   │   │   │   │   ├── value-dataset.js
+│   │       │   │   │   │   │   ├── value-dataset.png
+│   │       │   │   │   │   │   ├── value-element-options.js
+│   │       │   │   │   │   │   └── value-element-options.png
+│   │       │   │   │   │   ├── borderColor
+│   │       │   │   │   │   │   ├── indexable-dataset.js
+│   │       │   │   │   │   │   ├── indexable-dataset.png
+│   │       │   │   │   │   │   ├── indexable-element-options.js
+│   │       │   │   │   │   │   ├── indexable-element-options.png
+│   │       │   │   │   │   │   ├── scriptable-dataset.js
+│   │       │   │   │   │   │   ├── scriptable-dataset.png
+│   │       │   │   │   │   │   ├── scriptable-element-options.js
+│   │       │   │   │   │   │   ├── scriptable-element-options.png
+│   │       │   │   │   │   │   ├── value-dataset.js
+│   │       │   │   │   │   │   ├── value-dataset.png
+│   │       │   │   │   │   │   ├── value-element-options.js
+│   │       │   │   │   │   │   └── value-element-options.png
+│   │       │   │   │   │   ├── borderDash
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderWidth
+│   │       │   │   │   │   │   ├── indexable-dataset.js
+│   │       │   │   │   │   │   ├── indexable-dataset.png
+│   │       │   │   │   │   │   ├── indexable-element-options.js
+│   │       │   │   │   │   │   ├── indexable-element-options.png
+│   │       │   │   │   │   │   ├── scriptable-dataset.js
+│   │       │   │   │   │   │   ├── scriptable-dataset.png
+│   │       │   │   │   │   │   ├── scriptable-element-options.js
+│   │       │   │   │   │   │   ├── scriptable-element-options.png
+│   │       │   │   │   │   │   ├── value-dataset.js
+│   │       │   │   │   │   │   ├── value-dataset.png
+│   │       │   │   │   │   │   ├── value-element-options.js
+│   │       │   │   │   │   │   └── value-element-options.png
+│   │       │   │   │   │   ├── last-slice-animate.js
+│   │       │   │   │   │   ├── last-slice-animate.png
+│   │       │   │   │   │   ├── parse-object-data.json
+│   │       │   │   │   │   ├── parse-object-data.png
+│   │       │   │   │   │   ├── pointLabels
+│   │       │   │   │   │   │   ├── centered-180.js
+│   │       │   │   │   │   │   ├── centered-180.png
+│   │       │   │   │   │   │   ├── centered-45.js
+│   │       │   │   │   │   │   ├── centered-45.png
+│   │       │   │   │   │   │   ├── centered.js
+│   │       │   │   │   │   │   ├── centered.png
+│   │       │   │   │   │   │   ├── default-180.js
+│   │       │   │   │   │   │   ├── default-180.png
+│   │       │   │   │   │   │   ├── default-45.js
+│   │       │   │   │   │   │   ├── default-45.png
+│   │       │   │   │   │   │   ├── default.js
+│   │       │   │   │   │   │   ├── default.png
+│   │       │   │   │   │   │   ├── displayAuto-180.js
+│   │       │   │   │   │   │   ├── displayAuto-180.png
+│   │       │   │   │   │   │   ├── displayAuto.js
+│   │       │   │   │   │   │   ├── displayAuto.png
+│   │       │   │   │   │   │   ├── overlapping.js
+│   │       │   │   │   │   │   ├── overlapping.png
+│   │       │   │   │   │   │   └── withTitle
+│   │       │   │   │   │   │       ├── bottom-centered-45.js
+│   │       │   │   │   │   │       ├── bottom-centered-45.png
+│   │       │   │   │   │   │       ├── bottom-centered.js
+│   │       │   │   │   │   │       ├── bottom-centered.png
+│   │       │   │   │   │   │       ├── left-centered-45.js
+│   │       │   │   │   │   │       ├── left-centered-45.png
+│   │       │   │   │   │   │       ├── left-centered.js
+│   │       │   │   │   │   │       ├── left-centered.png
+│   │       │   │   │   │   │       ├── right-centered-45.js
+│   │       │   │   │   │   │       ├── right-centered-45.png
+│   │       │   │   │   │   │       ├── right-centered.js
+│   │       │   │   │   │   │       ├── right-centered.png
+│   │       │   │   │   │   │       ├── top-centered-45.js
+│   │       │   │   │   │   │       ├── top-centered-45.png
+│   │       │   │   │   │   │       ├── top-centered.js
+│   │       │   │   │   │   │       ├── top-centered.png
+│   │       │   │   │   │   │       ├── top-default-45.js
+│   │       │   │   │   │   │       ├── top-default-45.png
+│   │       │   │   │   │   │       ├── top-default.js
+│   │       │   │   │   │   │       └── top-default.png
+│   │       │   │   │   │   ├── polar-area-animation-rotate.js
+│   │       │   │   │   │   ├── polar-area-animation-rotate.png
+│   │       │   │   │   │   ├── polar-area-animation-scale.js
+│   │       │   │   │   │   └── polar-area-animation-scale.png
+│   │       │   │   │   ├── controller.radar
+│   │       │   │   │   │   ├── backgroundColor
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderCapStyle
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderColor
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderDash
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderDashOffset
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderJoinStyle
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── borderWidth
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   ├── value.png
+│   │       │   │   │   │   │   ├── zero.js
+│   │       │   │   │   │   │   └── zero.png
+│   │       │   │   │   │   ├── fill
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── point-style.json
+│   │       │   │   │   │   ├── point-style.png
+│   │       │   │   │   │   ├── pointBackgroundColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── pointBorderColor
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── pointBorderWidth
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── pointStyle
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── radius
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── rotation
+│   │       │   │   │   │   │   ├── indexable.js
+│   │       │   │   │   │   │   ├── indexable.png
+│   │       │   │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── showLine
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   └── startAngle
+│   │       │   │   │   │       ├── 135.js
+│   │       │   │   │   │       ├── 135.png
+│   │       │   │   │   │       ├── 180.js
+│   │       │   │   │   │       ├── 180.png
+│   │       │   │   │   │       ├── 225.js
+│   │       │   │   │   │       ├── 225.png
+│   │       │   │   │   │       ├── 270.js
+│   │       │   │   │   │       ├── 270.png
+│   │       │   │   │   │       ├── 315.js
+│   │       │   │   │   │       ├── 315.png
+│   │       │   │   │   │       ├── 45.js
+│   │       │   │   │   │       ├── 45.png
+│   │       │   │   │   │       ├── 90.js
+│   │       │   │   │   │       ├── 90.png
+│   │       │   │   │   │       ├── default.js
+│   │       │   │   │   │       └── default.png
+│   │       │   │   │   ├── controller.scatter
+│   │       │   │   │   │   └── showLine
+│   │       │   │   │   │       ├── changed.js
+│   │       │   │   │   │       ├── changed.png
+│   │       │   │   │   │       ├── true.js
+│   │       │   │   │   │       ├── true.png
+│   │       │   │   │   │       ├── undefined.js
+│   │       │   │   │   │       └── undefined.png
+│   │       │   │   │   ├── core.datasetController
+│   │       │   │   │   │   ├── stacked-initial-render.js
+│   │       │   │   │   │   └── stacked-initial-render.png
+│   │       │   │   │   ├── core.interaction
+│   │       │   │   │   │   ├── drawActiveElementsOnTop-false.js
+│   │       │   │   │   │   ├── drawActiveElementsOnTop-false.png
+│   │       │   │   │   │   ├── nearest-partial-bar.js
+│   │       │   │   │   │   ├── nearest-partial-bar.png
+│   │       │   │   │   │   ├── nearest-point-behind-scale.js
+│   │       │   │   │   │   └── nearest-point-behind-scale.png
+│   │       │   │   │   ├── core.layouts
+│   │       │   │   │   │   ├── hidden-vertical-boxes.js
+│   │       │   │   │   │   ├── hidden-vertical-boxes.png
+│   │       │   │   │   │   ├── long-labels.js
+│   │       │   │   │   │   ├── long-labels.png
+│   │       │   │   │   │   ├── no-boxes-all-padding.js
+│   │       │   │   │   │   ├── no-boxes-all-padding.png
+│   │       │   │   │   │   ├── refit-vertical-boxes.js
+│   │       │   │   │   │   ├── refit-vertical-boxes.png
+│   │       │   │   │   │   ├── scriptable.js
+│   │       │   │   │   │   ├── scriptable.png
+│   │       │   │   │   │   ├── stacked-boxes-max-index-without-clip.js
+│   │       │   │   │   │   ├── stacked-boxes-max-index-without-clip.png
+│   │       │   │   │   │   ├── stacked-boxes-max-index.js
+│   │       │   │   │   │   ├── stacked-boxes-max-index.png
+│   │       │   │   │   │   ├── stacked-boxes-max-without-clip.js
+│   │       │   │   │   │   ├── stacked-boxes-max-without-clip.png
+│   │       │   │   │   │   ├── stacked-boxes-max.js
+│   │       │   │   │   │   ├── stacked-boxes-max.png
+│   │       │   │   │   │   ├── stacked-boxes-with-weight.js
+│   │       │   │   │   │   ├── stacked-boxes-with-weight.png
+│   │       │   │   │   │   ├── stacked-boxes.js
+│   │       │   │   │   │   └── stacked-boxes.png
+│   │       │   │   │   ├── core.scale
+│   │       │   │   │   │   ├── autoSkip
+│   │       │   │   │   │   │   ├── fit-after.js
+│   │       │   │   │   │   │   ├── fit-after.png
+│   │       │   │   │   │   │   ├── no-offset.js
+│   │       │   │   │   │   │   ├── no-offset.png
+│   │       │   │   │   │   │   ├── offset.js
+│   │       │   │   │   │   │   └── offset.png
+│   │       │   │   │   │   ├── backgroundColor.js
+│   │       │   │   │   │   ├── backgroundColor.png
+│   │       │   │   │   │   ├── border-behind-elements.js
+│   │       │   │   │   │   ├── border-behind-elements.png
+│   │       │   │   │   │   ├── cartesian-axis-border-settings.json
+│   │       │   │   │   │   ├── cartesian-axis-border-settings.png
+│   │       │   │   │   │   ├── crossAlignment
+│   │       │   │   │   │   │   ├── cross-align-bottom-center.js
+│   │       │   │   │   │   │   ├── cross-align-bottom-center.png
+│   │       │   │   │   │   │   ├── cross-align-bottom-far.js
+│   │       │   │   │   │   │   ├── cross-align-bottom-far.png
+│   │       │   │   │   │   │   ├── cross-align-bottom-near.js
+│   │       │   │   │   │   │   ├── cross-align-bottom-near.png
+│   │       │   │   │   │   │   ├── cross-align-left-center.js
+│   │       │   │   │   │   │   ├── cross-align-left-center.png
+│   │       │   │   │   │   │   ├── cross-align-left-far-clipped.js
+│   │       │   │   │   │   │   ├── cross-align-left-far-clipped.png
+│   │       │   │   │   │   │   ├── cross-align-left-far.js
+│   │       │   │   │   │   │   ├── cross-align-left-far.png
+│   │       │   │   │   │   │   ├── cross-align-left-near.js
+│   │       │   │   │   │   │   ├── cross-align-left-near.png
+│   │       │   │   │   │   │   ├── cross-align-right-center.js
+│   │       │   │   │   │   │   ├── cross-align-right-center.png
+│   │       │   │   │   │   │   ├── cross-align-right-far-clipped.js
+│   │       │   │   │   │   │   ├── cross-align-right-far-clipped.png
+│   │       │   │   │   │   │   ├── cross-align-right-far.js
+│   │       │   │   │   │   │   ├── cross-align-right-far.png
+│   │       │   │   │   │   │   ├── cross-align-right-near.js
+│   │       │   │   │   │   │   ├── cross-align-right-near.png
+│   │       │   │   │   │   │   ├── cross-align-top-center.js
+│   │       │   │   │   │   │   ├── cross-align-top-center.png
+│   │       │   │   │   │   │   ├── cross-align-top-far.js
+│   │       │   │   │   │   │   ├── cross-align-top-far.png
+│   │       │   │   │   │   │   ├── cross-align-top-near.js
+│   │       │   │   │   │   │   ├── cross-align-top-near.png
+│   │       │   │   │   │   │   ├── mirror-cross-align-left-center.js
+│   │       │   │   │   │   │   ├── mirror-cross-align-left-center.png
+│   │       │   │   │   │   │   ├── mirror-cross-align-left-far.js
+│   │       │   │   │   │   │   ├── mirror-cross-align-left-far.png
+│   │       │   │   │   │   │   ├── mirror-cross-align-left-near.js
+│   │       │   │   │   │   │   ├── mirror-cross-align-left-near.png
+│   │       │   │   │   │   │   ├── mirror-cross-align-right-center.js
+│   │       │   │   │   │   │   ├── mirror-cross-align-right-center.png
+│   │       │   │   │   │   │   ├── mirror-cross-align-right-far.js
+│   │       │   │   │   │   │   ├── mirror-cross-align-right-far.png
+│   │       │   │   │   │   │   ├── mirror-cross-align-right-near.js
+│   │       │   │   │   │   │   └── mirror-cross-align-right-near.png
+│   │       │   │   │   │   ├── grid
+│   │       │   │   │   │   │   ├── border-over-grid.js
+│   │       │   │   │   │   │   ├── border-over-grid.png
+│   │       │   │   │   │   │   ├── colors.js
+│   │       │   │   │   │   │   ├── colors.png
+│   │       │   │   │   │   │   ├── scriptable-borderDash.js
+│   │       │   │   │   │   │   └── scriptable-borderDash.png
+│   │       │   │   │   │   ├── label-align-center.js
+│   │       │   │   │   │   ├── label-align-center.png
+│   │       │   │   │   │   ├── label-align-end.js
+│   │       │   │   │   │   ├── label-align-end.png
+│   │       │   │   │   │   ├── label-align-inner-onlyX.js
+│   │       │   │   │   │   ├── label-align-inner-onlyX.png
+│   │       │   │   │   │   ├── label-align-inner-reverse.js
+│   │       │   │   │   │   ├── label-align-inner-reverse.png
+│   │       │   │   │   │   ├── label-align-inner-rotate.js
+│   │       │   │   │   │   ├── label-align-inner-rotate.png
+│   │       │   │   │   │   ├── label-align-inner.js
+│   │       │   │   │   │   ├── label-align-inner.png
+│   │       │   │   │   │   ├── label-align-start.js
+│   │       │   │   │   │   ├── label-align-start.png
+│   │       │   │   │   │   ├── label-offset-vertical-axes.json
+│   │       │   │   │   │   ├── label-offset-vertical-axes.png
+│   │       │   │   │   │   ├── tick-backdrop-alignment-inner.js
+│   │       │   │   │   │   ├── tick-backdrop-alignment-inner.png
+│   │       │   │   │   │   ├── tick-backdrop-rotation.js
+│   │       │   │   │   │   ├── tick-backdrop-rotation.png
+│   │       │   │   │   │   ├── tick-backdrop.js
+│   │       │   │   │   │   ├── tick-backdrop.png
+│   │       │   │   │   │   ├── tick-drawing.json
+│   │       │   │   │   │   ├── tick-drawing.png
+│   │       │   │   │   │   ├── tick-override-styles.json
+│   │       │   │   │   │   ├── tick-override-styles.png
+│   │       │   │   │   │   ├── ticks
+│   │       │   │   │   │   │   ├── rotated-long.js
+│   │       │   │   │   │   │   ├── rotated-long.png
+│   │       │   │   │   │   │   ├── rotated-multi-line.js
+│   │       │   │   │   │   │   ├── rotated-multi-line.png
+│   │       │   │   │   │   │   ├── skip-by-callback.js
+│   │       │   │   │   │   │   └── skip-by-callback.png
+│   │       │   │   │   │   ├── ticks-mirror-x.js
+│   │       │   │   │   │   ├── ticks-mirror-x.png
+│   │       │   │   │   │   ├── ticks-mirror.js
+│   │       │   │   │   │   ├── ticks-mirror.png
+│   │       │   │   │   │   ├── title
+│   │       │   │   │   │   │   ├── align-end.js
+│   │       │   │   │   │   │   ├── align-end.png
+│   │       │   │   │   │   │   ├── align-start.js
+│   │       │   │   │   │   │   ├── align-start.png
+│   │       │   │   │   │   │   ├── default.js
+│   │       │   │   │   │   │   ├── default.png
+│   │       │   │   │   │   │   ├── horizontal-center.js
+│   │       │   │   │   │   │   ├── horizontal-center.png
+│   │       │   │   │   │   │   ├── horizontal-value.js
+│   │       │   │   │   │   │   ├── horizontal-value.png
+│   │       │   │   │   │   │   ├── multi-line
+│   │       │   │   │   │   │   │   ├── align-end.js
+│   │       │   │   │   │   │   │   ├── align-end.png
+│   │       │   │   │   │   │   │   ├── align-start.js
+│   │       │   │   │   │   │   │   ├── align-start.png
+│   │       │   │   │   │   │   │   ├── default.js
+│   │       │   │   │   │   │   │   └── default.png
+│   │       │   │   │   │   │   ├── vertical-center.js
+│   │       │   │   │   │   │   ├── vertical-center.png
+│   │       │   │   │   │   │   ├── vertical-value.js
+│   │       │   │   │   │   │   └── vertical-value.png
+│   │       │   │   │   │   ├── x-axis-position-center.json
+│   │       │   │   │   │   ├── x-axis-position-center.png
+│   │       │   │   │   │   ├── x-axis-position-dynamic-margin.js
+│   │       │   │   │   │   ├── x-axis-position-dynamic-margin.png
+│   │       │   │   │   │   ├── x-axis-position-dynamic.json
+│   │       │   │   │   │   ├── x-axis-position-dynamic.png
+│   │       │   │   │   │   ├── y-axis-position-center.json
+│   │       │   │   │   │   ├── y-axis-position-center.png
+│   │       │   │   │   │   ├── y-axis-position-dynamic.json
+│   │       │   │   │   │   └── y-axis-position-dynamic.png
+│   │       │   │   │   ├── element.line
+│   │       │   │   │   │   ├── cubicInterpolationMode
+│   │       │   │   │   │   │   ├── monotone-horizontal.js
+│   │       │   │   │   │   │   ├── monotone-horizontal.png
+│   │       │   │   │   │   │   ├── monotone-vertical.js
+│   │       │   │   │   │   │   └── monotone-vertical.png
+│   │       │   │   │   │   ├── default.js
+│   │       │   │   │   │   ├── default.png
+│   │       │   │   │   │   ├── skip
+│   │       │   │   │   │   │   ├── all.js
+│   │       │   │   │   │   │   ├── all.png
+│   │       │   │   │   │   │   ├── first-span.js
+│   │       │   │   │   │   │   ├── first-span.png
+│   │       │   │   │   │   │   ├── first.js
+│   │       │   │   │   │   │   ├── first.png
+│   │       │   │   │   │   │   ├── last-span.js
+│   │       │   │   │   │   │   ├── last-span.png
+│   │       │   │   │   │   │   ├── last.js
+│   │       │   │   │   │   │   ├── last.png
+│   │       │   │   │   │   │   ├── middle-span.js
+│   │       │   │   │   │   │   ├── middle-span.png
+│   │       │   │   │   │   │   ├── middle.js
+│   │       │   │   │   │   │   └── middle.png
+│   │       │   │   │   │   ├── stepped
+│   │       │   │   │   │   │   ├── after.js
+│   │       │   │   │   │   │   ├── after.png
+│   │       │   │   │   │   │   ├── before.js
+│   │       │   │   │   │   │   ├── before.png
+│   │       │   │   │   │   │   ├── default.js
+│   │       │   │   │   │   │   ├── default.png
+│   │       │   │   │   │   │   ├── middle.js
+│   │       │   │   │   │   │   └── middle.png
+│   │       │   │   │   │   └── tension
+│   │       │   │   │   │       ├── default.js
+│   │       │   │   │   │       ├── default.png
+│   │       │   │   │   │       ├── one.js
+│   │       │   │   │   │       ├── one.png
+│   │       │   │   │   │       ├── zero.js
+│   │       │   │   │   │       └── zero.png
+│   │       │   │   │   ├── element.point
+│   │       │   │   │   │   ├── point-style-circle.json
+│   │       │   │   │   │   ├── point-style-circle.png
+│   │       │   │   │   │   ├── point-style-cross-rot.json
+│   │       │   │   │   │   ├── point-style-cross-rot.png
+│   │       │   │   │   │   ├── point-style-cross.json
+│   │       │   │   │   │   ├── point-style-cross.png
+│   │       │   │   │   │   ├── point-style-dash.json
+│   │       │   │   │   │   ├── point-style-dash.png
+│   │       │   │   │   │   ├── point-style-image.js
+│   │       │   │   │   │   ├── point-style-image.png
+│   │       │   │   │   │   ├── point-style-line.json
+│   │       │   │   │   │   ├── point-style-line.png
+│   │       │   │   │   │   ├── point-style-rect-rot.json
+│   │       │   │   │   │   ├── point-style-rect-rot.png
+│   │       │   │   │   │   ├── point-style-rect-rounded.json
+│   │       │   │   │   │   ├── point-style-rect-rounded.png
+│   │       │   │   │   │   ├── point-style-rect.json
+│   │       │   │   │   │   ├── point-style-rect.png
+│   │       │   │   │   │   ├── point-style-star.json
+│   │       │   │   │   │   ├── point-style-star.png
+│   │       │   │   │   │   ├── point-style-triangle.json
+│   │       │   │   │   │   ├── point-style-triangle.png
+│   │       │   │   │   │   ├── rotation.js
+│   │       │   │   │   │   └── rotation.png
+│   │       │   │   │   ├── mixed
+│   │       │   │   │   │   ├── bar+line-stacked.js
+│   │       │   │   │   │   ├── bar+line-stacked.png
+│   │       │   │   │   │   ├── bar+line.js
+│   │       │   │   │   │   └── bar+line.png
+│   │       │   │   │   ├── plugin.colors
+│   │       │   │   │   │   ├── bar.js
+│   │       │   │   │   │   ├── bar.png
+│   │       │   │   │   │   ├── bubble.js
+│   │       │   │   │   │   ├── bubble.png
+│   │       │   │   │   │   ├── chart-options-colors.js
+│   │       │   │   │   │   ├── chart-options-colors.png
+│   │       │   │   │   │   ├── doughnut.js
+│   │       │   │   │   │   ├── doughnut.png
+│   │       │   │   │   │   ├── dynamic-datasets-default.js
+│   │       │   │   │   │   ├── dynamic-datasets-default.png
+│   │       │   │   │   │   ├── dynamic-datasets-force-override.js
+│   │       │   │   │   │   ├── dynamic-datasets-force-override.png
+│   │       │   │   │   │   ├── line.js
+│   │       │   │   │   │   ├── line.png
+│   │       │   │   │   │   ├── mixed.js
+│   │       │   │   │   │   ├── mixed.png
+│   │       │   │   │   │   ├── pie.js
+│   │       │   │   │   │   ├── pie.png
+│   │       │   │   │   │   ├── polarArea.js
+│   │       │   │   │   │   ├── polarArea.png
+│   │       │   │   │   │   ├── radar.js
+│   │       │   │   │   │   ├── radar.png
+│   │       │   │   │   │   ├── scatter.js
+│   │       │   │   │   │   └── scatter.png
+│   │       │   │   │   ├── plugin.filler
+│   │       │   │   │   │   ├── line
+│   │       │   │   │   │   │   ├── above-below-vertical-linechart.js
+│   │       │   │   │   │   │   ├── above-below-vertical-linechart.png
+│   │       │   │   │   │   │   ├── before-dataset-draw.js
+│   │       │   │   │   │   │   ├── before-dataset-draw.png
+│   │       │   │   │   │   │   ├── before-datasets-draw.js
+│   │       │   │   │   │   │   ├── before-datasets-draw.png
+│   │       │   │   │   │   │   ├── boundary
+│   │       │   │   │   │   │   │   ├── above-below-line-null-start.json
+│   │       │   │   │   │   │   │   ├── above-below-line-null-start.png
+│   │       │   │   │   │   │   │   ├── above-below-line-null.json
+│   │       │   │   │   │   │   │   ├── above-below-line-null.png
+│   │       │   │   │   │   │   │   ├── end-span.json
+│   │       │   │   │   │   │   │   ├── end-span.png
+│   │       │   │   │   │   │   │   ├── end.json
+│   │       │   │   │   │   │   │   ├── end.png
+│   │       │   │   │   │   │   │   ├── origin-span-dual.json
+│   │       │   │   │   │   │   │   ├── origin-span-dual.png
+│   │       │   │   │   │   │   │   ├── origin-span.json
+│   │       │   │   │   │   │   │   ├── origin-span.png
+│   │       │   │   │   │   │   │   ├── origin-spline-above.json
+│   │       │   │   │   │   │   │   ├── origin-spline-above.png
+│   │       │   │   │   │   │   │   ├── origin-spline-span.json
+│   │       │   │   │   │   │   │   ├── origin-spline-span.png
+│   │       │   │   │   │   │   │   ├── origin-spline.json
+│   │       │   │   │   │   │   │   ├── origin-spline.png
+│   │       │   │   │   │   │   │   ├── origin-stepped-span.json
+│   │       │   │   │   │   │   │   ├── origin-stepped-span.png
+│   │       │   │   │   │   │   │   ├── origin-stepped.json
+│   │       │   │   │   │   │   │   ├── origin-stepped.png
+│   │       │   │   │   │   │   │   ├── origin.json
+│   │       │   │   │   │   │   │   ├── origin.png
+│   │       │   │   │   │   │   │   ├── start-span.json
+│   │       │   │   │   │   │   │   ├── start-span.png
+│   │       │   │   │   │   │   │   ├── start.json
+│   │       │   │   │   │   │   │   └── start.png
+│   │       │   │   │   │   │   ├── dataset
+│   │       │   │   │   │   │   │   ├── border.json
+│   │       │   │   │   │   │   │   ├── border.png
+│   │       │   │   │   │   │   │   ├── clip-bounds-x-off.js
+│   │       │   │   │   │   │   │   ├── clip-bounds-x-off.png
+│   │       │   │   │   │   │   │   ├── clip-bounds-x.js
+│   │       │   │   │   │   │   │   ├── clip-bounds-x.png
+│   │       │   │   │   │   │   │   ├── clip-bounds-y-off.js
+│   │       │   │   │   │   │   │   ├── clip-bounds-y-off.png
+│   │       │   │   │   │   │   │   ├── clip-bounds-y.js
+│   │       │   │   │   │   │   │   ├── clip-bounds-y.png
+│   │       │   │   │   │   │   │   ├── dual.json
+│   │       │   │   │   │   │   │   ├── dual.png
+│   │       │   │   │   │   │   │   ├── interpolated.js
+│   │       │   │   │   │   │   │   ├── interpolated.png
+│   │       │   │   │   │   │   │   ├── no-border.json
+│   │       │   │   │   │   │   │   ├── no-border.png
+│   │       │   │   │   │   │   │   ├── span-dual.json
+│   │       │   │   │   │   │   │   ├── span-dual.png
+│   │       │   │   │   │   │   │   ├── span.json
+│   │       │   │   │   │   │   │   ├── span.png
+│   │       │   │   │   │   │   │   ├── spline-span-above.json
+│   │       │   │   │   │   │   │   ├── spline-span-above.png
+│   │       │   │   │   │   │   │   ├── spline-span-below.json
+│   │       │   │   │   │   │   │   ├── spline-span-below.png
+│   │       │   │   │   │   │   │   ├── spline-span.json
+│   │       │   │   │   │   │   │   ├── spline-span.png
+│   │       │   │   │   │   │   │   ├── spline.json
+│   │       │   │   │   │   │   │   ├── spline.png
+│   │       │   │   │   │   │   │   ├── stepped.json
+│   │       │   │   │   │   │   │   └── stepped.png
+│   │       │   │   │   │   │   ├── drawTimeFillFalse
+│   │       │   │   │   │   │   │   ├── beforeDatasetDraw.js
+│   │       │   │   │   │   │   │   ├── beforeDatasetDraw.png
+│   │       │   │   │   │   │   │   ├── beforeDatasetsDraw.js
+│   │       │   │   │   │   │   │   ├── beforeDatasetsDraw.png
+│   │       │   │   │   │   │   │   ├── beforeDraw.js
+│   │       │   │   │   │   │   │   └── beforeDraw.png
+│   │       │   │   │   │   │   ├── points-outside-canvas-initial.js
+│   │       │   │   │   │   │   ├── points-outside-canvas-initial.png
+│   │       │   │   │   │   │   ├── points-outside-canvas-update.js
+│   │       │   │   │   │   │   ├── points-outside-canvas-update.png
+│   │       │   │   │   │   │   ├── segments
+│   │       │   │   │   │   │   │   ├── alignToPixels.js
+│   │       │   │   │   │   │   │   ├── alignToPixels.png
+│   │       │   │   │   │   │   │   ├── gap.js
+│   │       │   │   │   │   │   │   ├── gap.png
+│   │       │   │   │   │   │   │   ├── slope.js
+│   │       │   │   │   │   │   │   └── slope.png
+│   │       │   │   │   │   │   ├── shape.js
+│   │       │   │   │   │   │   ├── shape.png
+│   │       │   │   │   │   │   ├── stack-multiple-scales.js
+│   │       │   │   │   │   │   ├── stack-multiple-scales.png
+│   │       │   │   │   │   │   ├── stack.json
+│   │       │   │   │   │   │   ├── stack.png
+│   │       │   │   │   │   │   ├── value.json
+│   │       │   │   │   │   │   ├── value.png
+│   │       │   │   │   │   │   ├── vertical.js
+│   │       │   │   │   │   │   └── vertical.png
+│   │       │   │   │   │   └── radar
+│   │       │   │   │   │       ├── beforeDraw.js
+│   │       │   │   │   │       ├── beforeDraw.png
+│   │       │   │   │   │       ├── boundary
+│   │       │   │   │   │       │   ├── end-circular.json
+│   │       │   │   │   │       │   ├── end-circular.png
+│   │       │   │   │   │       │   ├── end-span.json
+│   │       │   │   │   │       │   ├── end-span.png
+│   │       │   │   │   │       │   ├── end.json
+│   │       │   │   │   │       │   ├── end.png
+│   │       │   │   │   │       │   ├── origin-circular.json
+│   │       │   │   │   │       │   ├── origin-circular.png
+│   │       │   │   │   │       │   ├── origin-span.json
+│   │       │   │   │   │       │   ├── origin-span.png
+│   │       │   │   │   │       │   ├── origin-spline-span.json
+│   │       │   │   │   │       │   ├── origin-spline-span.png
+│   │       │   │   │   │       │   ├── origin-spline.json
+│   │       │   │   │   │       │   ├── origin-spline.png
+│   │       │   │   │   │       │   ├── origin.json
+│   │       │   │   │   │       │   ├── origin.png
+│   │       │   │   │   │       │   ├── start-circular.json
+│   │       │   │   │   │       │   ├── start-circular.png
+│   │       │   │   │   │       │   ├── start-span.json
+│   │       │   │   │   │       │   ├── start-span.png
+│   │       │   │   │   │       │   ├── start.json
+│   │       │   │   │   │       │   └── start.png
+│   │       │   │   │   │       ├── dataset
+│   │       │   │   │   │       │   ├── border.json
+│   │       │   │   │   │       │   ├── border.png
+│   │       │   │   │   │       │   ├── default.json
+│   │       │   │   │   │       │   ├── default.png
+│   │       │   │   │   │       │   ├── order.js
+│   │       │   │   │   │       │   ├── order.png
+│   │       │   │   │   │       │   ├── span.json
+│   │       │   │   │   │       │   ├── span.png
+│   │       │   │   │   │       │   ├── spline.json
+│   │       │   │   │   │       │   └── spline.png
+│   │       │   │   │   │       ├── value.json
+│   │       │   │   │   │       └── value.png
+│   │       │   │   │   ├── plugin.legend
+│   │       │   │   │   │   ├── borderRadius
+│   │       │   │   │   │   │   ├── legend-border-radius.js
+│   │       │   │   │   │   │   └── legend-border-radius.png
+│   │       │   │   │   │   ├── horizontal-rtl-hitbox.js
+│   │       │   │   │   │   ├── horizontal-rtl-hitbox.png
+│   │       │   │   │   │   ├── label-textAlign
+│   │       │   │   │   │   │   ├── center.js
+│   │       │   │   │   │   │   ├── center.png
+│   │       │   │   │   │   │   ├── horizontal-left.js
+│   │       │   │   │   │   │   ├── horizontal-left.png
+│   │       │   │   │   │   │   ├── horizontal-right.js
+│   │       │   │   │   │   │   ├── horizontal-right.png
+│   │       │   │   │   │   │   ├── horizontal-rtl-left.js
+│   │       │   │   │   │   │   ├── horizontal-rtl-left.png
+│   │       │   │   │   │   │   ├── horizontal-rtl-right.js
+│   │       │   │   │   │   │   ├── horizontal-rtl-right.png
+│   │       │   │   │   │   │   ├── left.js
+│   │       │   │   │   │   │   ├── left.png
+│   │       │   │   │   │   │   ├── right.js
+│   │       │   │   │   │   │   ├── right.png
+│   │       │   │   │   │   │   ├── rtl-center.js
+│   │       │   │   │   │   │   ├── rtl-center.png
+│   │       │   │   │   │   │   ├── rtl-left.js
+│   │       │   │   │   │   │   ├── rtl-left.png
+│   │       │   │   │   │   │   ├── rtl-right.js
+│   │       │   │   │   │   │   └── rtl-right.png
+│   │       │   │   │   │   ├── legend-doughnut-bottom-center-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-bottom-center-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-bottom-center-single.json
+│   │       │   │   │   │   ├── legend-doughnut-bottom-center-single.png
+│   │       │   │   │   │   ├── legend-doughnut-bottom-end-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-bottom-end-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-bottom-start-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-bottom-start-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-left-center-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-left-center-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-left-center-single.json
+│   │       │   │   │   │   ├── legend-doughnut-left-center-single.png
+│   │       │   │   │   │   ├── legend-doughnut-left-default-center.json
+│   │       │   │   │   │   ├── legend-doughnut-left-default-center.png
+│   │       │   │   │   │   ├── legend-doughnut-left-end-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-left-end-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-left-start-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-left-start-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-point-style.json
+│   │       │   │   │   │   ├── legend-doughnut-point-style.png
+│   │       │   │   │   │   ├── legend-doughnut-right-center-mulitiline-labels.json
+│   │       │   │   │   │   ├── legend-doughnut-right-center-mulitiline-labels.png
+│   │       │   │   │   │   ├── legend-doughnut-right-center-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-right-center-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-right-center-single.json
+│   │       │   │   │   │   ├── legend-doughnut-right-center-single.png
+│   │       │   │   │   │   ├── legend-doughnut-right-default-center.json
+│   │       │   │   │   │   ├── legend-doughnut-right-default-center.png
+│   │       │   │   │   │   ├── legend-doughnut-right-end-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-right-end-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-right-start-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-right-start-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-top-center-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-top-center-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-top-center-single.json
+│   │       │   │   │   │   ├── legend-doughnut-top-center-single.png
+│   │       │   │   │   │   ├── legend-doughnut-top-end-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-top-end-mulitiline.png
+│   │       │   │   │   │   ├── legend-doughnut-top-start-mulitiline.json
+│   │       │   │   │   │   ├── legend-doughnut-top-start-mulitiline.png
+│   │       │   │   │   │   ├── legend-line-chart-area.json
+│   │       │   │   │   │   ├── legend-line-chart-area.png
+│   │       │   │   │   │   ├── maxWidth
+│   │       │   │   │   │   │   ├── infinity.js
+│   │       │   │   │   │   │   ├── infinity.png
+│   │       │   │   │   │   │   ├── undefined.js
+│   │       │   │   │   │   │   ├── undefined.png
+│   │       │   │   │   │   │   ├── value.js
+│   │       │   │   │   │   │   └── value.png
+│   │       │   │   │   │   ├── padding
+│   │       │   │   │   │   │   ├── 2cols-with-padding.js
+│   │       │   │   │   │   │   ├── 2cols-with-padding.png
+│   │       │   │   │   │   │   ├── add-column.js
+│   │       │   │   │   │   │   └── add-column.png
+│   │       │   │   │   │   ├── pointStyle-width
+│   │       │   │   │   │   │   ├── legend-pointStyle-width-default.json
+│   │       │   │   │   │   │   ├── legend-pointStyle-width-default.png
+│   │       │   │   │   │   │   ├── legend-pointStyle-width.json
+│   │       │   │   │   │   │   └── legend-pointStyle-width.png
+│   │       │   │   │   │   └── title
+│   │       │   │   │   │       ├── bottom-center-center.js
+│   │       │   │   │   │       ├── bottom-center-center.png
+│   │       │   │   │   │       ├── bottom-end-end.js
+│   │       │   │   │   │       ├── bottom-end-end.png
+│   │       │   │   │   │       ├── bottom-start-start.js
+│   │       │   │   │   │       ├── bottom-start-start.png
+│   │       │   │   │   │       ├── left-center-center.js
+│   │       │   │   │   │       ├── left-center-center.png
+│   │       │   │   │   │       ├── left-end-end.js
+│   │       │   │   │   │       ├── left-end-end.png
+│   │       │   │   │   │       ├── left-start-start.js
+│   │       │   │   │   │       ├── left-start-start.png
+│   │       │   │   │   │       ├── right-center-center.js
+│   │       │   │   │   │       ├── right-center-center.png
+│   │       │   │   │   │       ├── right-end-end.js
+│   │       │   │   │   │       ├── right-end-end.png
+│   │       │   │   │   │       ├── right-start-start.js
+│   │       │   │   │   │       ├── right-start-start.png
+│   │       │   │   │   │       ├── top-center-center.js
+│   │       │   │   │   │       ├── top-center-center.png
+│   │       │   │   │   │       ├── top-end-end.js
+│   │       │   │   │   │       ├── top-end-end.png
+│   │       │   │   │   │       ├── top-start-start.js
+│   │       │   │   │   │       └── top-start-start.png
+│   │       │   │   │   ├── plugin.subtitle
+│   │       │   │   │   │   ├── basic.js
+│   │       │   │   │   │   └── basic.png
+│   │       │   │   │   ├── plugin.title
+│   │       │   │   │   │   ├── scriptable-options.js
+│   │       │   │   │   │   └── scriptable-options.png
+│   │       │   │   │   ├── plugin.tooltip
+│   │       │   │   │   │   ├── box-padding.js
+│   │       │   │   │   │   ├── box-padding.png
+│   │       │   │   │   │   ├── caret-position.js
+│   │       │   │   │   │   ├── caret-position.png
+│   │       │   │   │   │   ├── color-box-border-dash.js
+│   │       │   │   │   │   ├── color-box-border-dash.png
+│   │       │   │   │   │   ├── color-box-border-radius.js
+│   │       │   │   │   │   ├── color-box-border-radius.png
+│   │       │   │   │   │   ├── corner-radius.js
+│   │       │   │   │   │   ├── corner-radius.png
+│   │       │   │   │   │   ├── opacity.js
+│   │       │   │   │   │   ├── opacity.png
+│   │       │   │   │   │   ├── point-style.js
+│   │       │   │   │   │   ├── point-style.png
+│   │       │   │   │   │   ├── positioning.js
+│   │       │   │   │   │   └── positioning.png
+│   │       │   │   │   ├── scale.category
+│   │       │   │   │   │   ├── invalid-data.js
+│   │       │   │   │   │   ├── invalid-data.png
+│   │       │   │   │   │   ├── max-ticks-limit-a.js
+│   │       │   │   │   │   ├── max-ticks-limit-a.png
+│   │       │   │   │   │   ├── max-ticks-limit-b.js
+│   │       │   │   │   │   ├── max-ticks-limit-b.png
+│   │       │   │   │   │   ├── max-ticks-limit-norotation.js
+│   │       │   │   │   │   ├── max-ticks-limit-norotation.png
+│   │       │   │   │   │   ├── ticks-from-data.js
+│   │       │   │   │   │   └── ticks-from-data.png
+│   │       │   │   │   ├── scale.linear
+│   │       │   │   │   │   ├── grace
+│   │       │   │   │   │   │   ├── grace-10%.js
+│   │       │   │   │   │   │   ├── grace-10%.png
+│   │       │   │   │   │   │   ├── grace-beginAtZero.js
+│   │       │   │   │   │   │   ├── grace-beginAtZero.png
+│   │       │   │   │   │   │   ├── grace-neg.js
+│   │       │   │   │   │   │   ├── grace-neg.png
+│   │       │   │   │   │   │   ├── grace-pos.js
+│   │       │   │   │   │   │   ├── grace-pos.png
+│   │       │   │   │   │   │   ├── grace.js
+│   │       │   │   │   │   │   ├── grace.png
+│   │       │   │   │   │   │   ├── issue-8912.js
+│   │       │   │   │   │   │   └── issue-8912.png
+│   │       │   │   │   │   ├── issue-8806.js
+│   │       │   │   │   │   ├── issue-8806.png
+│   │       │   │   │   │   ├── min-max-skip
+│   │       │   │   │   │   │   ├── edge-case-1.js
+│   │       │   │   │   │   │   ├── edge-case-1.png
+│   │       │   │   │   │   │   ├── edge-case-2.js
+│   │       │   │   │   │   │   ├── edge-case-2.png
+│   │       │   │   │   │   │   ├── edge-case-3.js
+│   │       │   │   │   │   │   ├── edge-case-3.png
+│   │       │   │   │   │   │   ├── edge-case-4.js
+│   │       │   │   │   │   │   ├── edge-case-4.png
+│   │       │   │   │   │   │   ├── includeBounds.js
+│   │       │   │   │   │   │   ├── includeBounds.png
+│   │       │   │   │   │   │   ├── min-max-skip.js
+│   │       │   │   │   │   │   ├── min-max-skip.png
+│   │       │   │   │   │   │   ├── no-collision.js
+│   │       │   │   │   │   │   ├── no-collision.png
+│   │       │   │   │   │   │   ├── rotated-case-1.js
+│   │       │   │   │   │   │   ├── rotated-case-1.png
+│   │       │   │   │   │   │   ├── rotated-case-2.js
+│   │       │   │   │   │   │   ├── rotated-case-2.png
+│   │       │   │   │   │   │   ├── rotated-case-3.js
+│   │       │   │   │   │   │   ├── rotated-case-3.png
+│   │       │   │   │   │   │   ├── rotated-case-4.js
+│   │       │   │   │   │   │   └── rotated-case-4.png
+│   │       │   │   │   │   ├── rotated-45.js
+│   │       │   │   │   │   ├── rotated-45.png
+│   │       │   │   │   │   ├── rotated-5.js
+│   │       │   │   │   │   ├── rotated-5.png
+│   │       │   │   │   │   ├── rotated-85.js
+│   │       │   │   │   │   ├── rotated-85.png
+│   │       │   │   │   │   ├── tick-count-data-limits.js
+│   │       │   │   │   │   ├── tick-count-data-limits.png
+│   │       │   │   │   │   ├── tick-count-min-max-not-aligned.js
+│   │       │   │   │   │   ├── tick-count-min-max-not-aligned.png
+│   │       │   │   │   │   ├── tick-count-min-max-not-int.js
+│   │       │   │   │   │   ├── tick-count-min-max-not-int.png
+│   │       │   │   │   │   ├── tick-count-min-max.js
+│   │       │   │   │   │   ├── tick-count-min-max.png
+│   │       │   │   │   │   ├── tick-step-min-max-step-fp.js
+│   │       │   │   │   │   ├── tick-step-min-max-step-fp.png
+│   │       │   │   │   │   ├── tick-step-min-max.js
+│   │       │   │   │   │   ├── tick-step-min-max.png
+│   │       │   │   │   │   ├── tiny-numbers.js
+│   │       │   │   │   │   └── tiny-numbers.png
+│   │       │   │   │   ├── scale.logarithmic
+│   │       │   │   │   │   ├── large-range.js
+│   │       │   │   │   │   ├── large-range.png
+│   │       │   │   │   │   ├── large-values-small-range.js
+│   │       │   │   │   │   ├── large-values-small-range.png
+│   │       │   │   │   │   ├── med-range.js
+│   │       │   │   │   │   ├── med-range.png
+│   │       │   │   │   │   ├── min-max.js
+│   │       │   │   │   │   ├── min-max.png
+│   │       │   │   │   │   ├── null-values.js
+│   │       │   │   │   │   ├── null-values.png
+│   │       │   │   │   │   ├── small-range.js
+│   │       │   │   │   │   └── small-range.png
+│   │       │   │   │   ├── scale.radialLinear
+│   │       │   │   │   │   ├── anglelines-disable.json
+│   │       │   │   │   │   ├── anglelines-disable.png
+│   │       │   │   │   │   ├── anglelines-indexable.js
+│   │       │   │   │   │   ├── anglelines-indexable.png
+│   │       │   │   │   │   ├── anglelines-reverse-scale.js
+│   │       │   │   │   │   ├── anglelines-reverse-scale.png
+│   │       │   │   │   │   ├── anglelines-scriptable.js
+│   │       │   │   │   │   ├── anglelines-scriptable.png
+│   │       │   │   │   │   ├── backgroundColor.js
+│   │       │   │   │   │   ├── backgroundColor.png
+│   │       │   │   │   │   ├── border-dash.json
+│   │       │   │   │   │   ├── border-dash.png
+│   │       │   │   │   │   ├── circular-backgroundColor.js
+│   │       │   │   │   │   ├── circular-backgroundColor.png
+│   │       │   │   │   │   ├── circular-border-dash.json
+│   │       │   │   │   │   ├── circular-border-dash.png
+│   │       │   │   │   │   ├── gridlines-disable.json
+│   │       │   │   │   │   ├── gridlines-disable.png
+│   │       │   │   │   │   ├── gridlines-no-z.json
+│   │       │   │   │   │   ├── gridlines-no-z.png
+│   │       │   │   │   │   ├── gridlines-scriptable.js
+│   │       │   │   │   │   ├── gridlines-scriptable.png
+│   │       │   │   │   │   ├── gridlines-z.json
+│   │       │   │   │   │   ├── gridlines-z.png
+│   │       │   │   │   │   ├── indexable-gridlines.json
+│   │       │   │   │   │   ├── indexable-gridlines.png
+│   │       │   │   │   │   ├── pointLabels
+│   │       │   │   │   │   │   ├── background.js
+│   │       │   │   │   │   │   ├── background.png
+│   │       │   │   │   │   │   ├── border-radius.js
+│   │       │   │   │   │   │   ├── border-radius.png
+│   │       │   │   │   │   │   ├── no-more-than-half-radius.js
+│   │       │   │   │   │   │   ├── no-more-than-half-radius.png
+│   │       │   │   │   │   │   ├── padding.js
+│   │       │   │   │   │   │   ├── padding.png
+│   │       │   │   │   │   │   ├── scriptable-color-small.js
+│   │       │   │   │   │   │   └── scriptable-color-small.png
+│   │       │   │   │   │   ├── ticks-below-zero.js
+│   │       │   │   │   │   └── ticks-below-zero.png
+│   │       │   │   │   ├── scale.time
+│   │       │   │   │   │   ├── autoskip-major.js
+│   │       │   │   │   │   ├── autoskip-major.png
+│   │       │   │   │   │   ├── bar-large-gap-between-data.js
+│   │       │   │   │   │   ├── bar-large-gap-between-data.png
+│   │       │   │   │   │   ├── custom-parser.js
+│   │       │   │   │   │   ├── custom-parser.png
+│   │       │   │   │   │   ├── data-ty.js
+│   │       │   │   │   │   ├── data-ty.png
+│   │       │   │   │   │   ├── data-xy.js
+│   │       │   │   │   │   ├── data-xy.png
+│   │       │   │   │   │   ├── invalid-data.js
+│   │       │   │   │   │   ├── invalid-data.png
+│   │       │   │   │   │   ├── labels-date.js
+│   │       │   │   │   │   ├── labels-date.png
+│   │       │   │   │   │   ├── labels-strings.js
+│   │       │   │   │   │   ├── labels-strings.png
+│   │       │   │   │   │   ├── labels.js
+│   │       │   │   │   │   ├── labels.png
+│   │       │   │   │   │   ├── negative-times.js
+│   │       │   │   │   │   ├── negative-times.png
+│   │       │   │   │   │   ├── offset-auto-skip-ticks.js
+│   │       │   │   │   │   ├── offset-auto-skip-ticks.png
+│   │       │   │   │   │   ├── offset-with-1-tick.js
+│   │       │   │   │   │   ├── offset-with-1-tick.png
+│   │       │   │   │   │   ├── offset-with-2-ticks.js
+│   │       │   │   │   │   ├── offset-with-2-ticks.png
+│   │       │   │   │   │   ├── offset-with-no-ticks.js
+│   │       │   │   │   │   ├── offset-with-no-ticks.png
+│   │       │   │   │   │   ├── skip-null-gridlines.js
+│   │       │   │   │   │   ├── skip-null-gridlines.png
+│   │       │   │   │   │   ├── skip-undefined-gridlines.js
+│   │       │   │   │   │   ├── skip-undefined-gridlines.png
+│   │       │   │   │   │   ├── source-auto-linear.js
+│   │       │   │   │   │   ├── source-auto-linear.png
+│   │       │   │   │   │   ├── source-data-linear.js
+│   │       │   │   │   │   ├── source-data-linear.png
+│   │       │   │   │   │   ├── source-labels-linear-offset-min-max.js
+│   │       │   │   │   │   ├── source-labels-linear-offset-min-max.png
+│   │       │   │   │   │   ├── source-labels-linear.js
+│   │       │   │   │   │   ├── source-labels-linear.png
+│   │       │   │   │   │   ├── ticks-capacity.js
+│   │       │   │   │   │   ├── ticks-capacity.png
+│   │       │   │   │   │   ├── ticks-minunit.js
+│   │       │   │   │   │   ├── ticks-minunit.png
+│   │       │   │   │   │   ├── ticks-reverse-linear-min-max.js
+│   │       │   │   │   │   ├── ticks-reverse-linear-min-max.png
+│   │       │   │   │   │   ├── ticks-reverse-linear.js
+│   │       │   │   │   │   ├── ticks-reverse-linear.png
+│   │       │   │   │   │   ├── ticks-reverse-offset.js
+│   │       │   │   │   │   ├── ticks-reverse-offset.png
+│   │       │   │   │   │   ├── ticks-reverse.js
+│   │       │   │   │   │   ├── ticks-reverse.png
+│   │       │   │   │   │   ├── ticks-round.js
+│   │       │   │   │   │   ├── ticks-round.png
+│   │       │   │   │   │   ├── ticks-stepsize.js
+│   │       │   │   │   │   ├── ticks-stepsize.png
+│   │       │   │   │   │   ├── ticks-unit.js
+│   │       │   │   │   │   └── ticks-unit.png
+│   │       │   │   │   └── scale.timeseries
+│   │       │   │   │       ├── data-timestamps.js
+│   │       │   │   │       ├── data-timestamps.png
+│   │       │   │   │       ├── financial-daily.js
+│   │       │   │   │       ├── financial-daily.png
+│   │       │   │   │       ├── normalize.js
+│   │       │   │   │       ├── normalize.png
+│   │       │   │   │       ├── source-auto.js
+│   │       │   │   │       ├── source-auto.png
+│   │       │   │   │       ├── source-data-offset-min-max.js
+│   │       │   │   │       ├── source-data-offset-min-max.png
+│   │       │   │   │       ├── source-data.js
+│   │       │   │   │       ├── source-data.png
+│   │       │   │   │       ├── source-labels-offset-min-max.js
+│   │       │   │   │       ├── source-labels-offset-min-max.png
+│   │       │   │   │       ├── source-labels.js
+│   │       │   │   │       ├── source-labels.png
+│   │       │   │   │       ├── ticks-reverse-max.js
+│   │       │   │   │       ├── ticks-reverse-max.png
+│   │       │   │   │       ├── ticks-reverse-min-max.js
+│   │       │   │   │       ├── ticks-reverse-min-max.png
+│   │       │   │   │       ├── ticks-reverse-min.js
+│   │       │   │   │       ├── ticks-reverse-min.png
+│   │       │   │   │       ├── ticks-reverse.js
+│   │       │   │   │       └── ticks-reverse.png
+│   │       │   │   ├── index.js
+│   │       │   │   ├── integration
+│   │       │   │   │   ├── node
+│   │       │   │   │   │   ├── package.json
+│   │       │   │   │   │   ├── test.cjs
+│   │       │   │   │   │   └── test.js
+│   │       │   │   │   ├── node-commonjs
+│   │       │   │   │   │   ├── package.json
+│   │       │   │   │   │   ├── test-auto.js
+│   │       │   │   │   │   └── test.js
+│   │       │   │   │   ├── react-browser
+│   │       │   │   │   │   ├── package.json
+│   │       │   │   │   │   ├── public
+│   │       │   │   │   │   │   └── index.html
+│   │       │   │   │   │   ├── src
+│   │       │   │   │   │   │   ├── App.tsx
+│   │       │   │   │   │   │   ├── AppAuto.tsx
+│   │       │   │   │   │   │   └── index.tsx
+│   │       │   │   │   │   └── tsconfig.json
+│   │       │   │   │   ├── typescript-node
+│   │       │   │   │   │   ├── package.json
+│   │       │   │   │   │   ├── src
+│   │       │   │   │   │   │   └── index.ts
+│   │       │   │   │   │   └── tsconfig.json
+│   │       │   │   │   └── typescript-node-next
+│   │       │   │   │       ├── package.json
+│   │       │   │   │       ├── src
+│   │       │   │   │       │   └── index.ts
+│   │       │   │   │       └── tsconfig.json
+│   │       │   │   ├── seed-reporter.cjs
+│   │       │   │   ├── specs
+│   │       │   │   │   ├── controller.bar.tests.js
+│   │       │   │   │   ├── controller.bubble.tests.js
+│   │       │   │   │   ├── controller.doughnut.tests.js
+│   │       │   │   │   ├── controller.line.tests.js
+│   │       │   │   │   ├── controller.polarArea.tests.js
+│   │       │   │   │   ├── controller.radar.tests.js
+│   │       │   │   │   ├── controller.scatter.tests.js
+│   │       │   │   │   ├── core.animation.tests.js
+│   │       │   │   │   ├── core.animations.tests.js
+│   │       │   │   │   ├── core.animator.tests.js
+│   │       │   │   │   ├── core.controller.tests.js
+│   │       │   │   │   ├── core.datasetController.tests.js
+│   │       │   │   │   ├── core.defaults.tests.js
+│   │       │   │   │   ├── core.element.tests.js
+│   │       │   │   │   ├── core.helpers.tests.js
+│   │       │   │   │   ├── core.interaction.tests.js
+│   │       │   │   │   ├── core.layouts.tests.js
+│   │       │   │   │   ├── core.plugin.tests.js
+│   │       │   │   │   ├── core.registry.tests.js
+│   │       │   │   │   ├── core.scale.tests.js
+│   │       │   │   │   ├── core.ticks.tests.js
+│   │       │   │   │   ├── element.arc.tests.js
+│   │       │   │   │   ├── element.bar.tests.js
+│   │       │   │   │   ├── element.line.tests.js
+│   │       │   │   │   ├── element.point.tests.js
+│   │       │   │   │   ├── global.defaults.tests.js
+│   │       │   │   │   ├── global.namespace.tests.js
+│   │       │   │   │   ├── helpers.canvas.tests.js
+│   │       │   │   │   ├── helpers.collection.tests.js
+│   │       │   │   │   ├── helpers.color.tests.js
+│   │       │   │   │   ├── helpers.config.tests.js
+│   │       │   │   │   ├── helpers.core.tests.js
+│   │       │   │   │   ├── helpers.curve.tests.js
+│   │       │   │   │   ├── helpers.dom.tests.js
+│   │       │   │   │   ├── helpers.easing.tests.js
+│   │       │   │   │   ├── helpers.interpolation.tests.js
+│   │       │   │   │   ├── helpers.math.tests.js
+│   │       │   │   │   ├── helpers.options.tests.js
+│   │       │   │   │   ├── helpers.segment.tests.js
+│   │       │   │   │   ├── mixed.tests.js
+│   │       │   │   │   ├── platform.basic.tests.js
+│   │       │   │   │   ├── platform.dom.tests.js
+│   │       │   │   │   ├── plugin.colors.tests.js
+│   │       │   │   │   ├── plugin.decimation.tests.js
+│   │       │   │   │   ├── plugin.filler.tests.js
+│   │       │   │   │   ├── plugin.legend.tests.js
+│   │       │   │   │   ├── plugin.subtitle.tests.js
+│   │       │   │   │   ├── plugin.title.tests.js
+│   │       │   │   │   ├── plugin.tooltip.tests.js
+│   │       │   │   │   ├── scale.category.tests.js
+│   │       │   │   │   ├── scale.linear.tests.js
+│   │       │   │   │   ├── scale.logarithmic.tests.js
+│   │       │   │   │   ├── scale.radialLinear.tests.js
+│   │       │   │   │   └── scale.time.tests.js
+│   │       │   │   └── types
+│   │       │   │       ├── animation.ts
+│   │       │   │       ├── autogen.js
+│   │       │   │       ├── chart_types.ts
+│   │       │   │       ├── controllers
+│   │       │   │       │   ├── bar_floating_data.ts
+│   │       │   │       │   ├── bubble_chart_options.ts
+│   │       │   │       │   ├── doughnut_meta_total.ts
+│   │       │   │       │   ├── doughnut_offset.ts
+│   │       │   │       │   ├── doughnut_outer_radius.ts
+│   │       │   │       │   ├── doughnut_spacing_offset.ts
+│   │       │   │       │   ├── line_scriptable_parsed_data.ts
+│   │       │   │       │   ├── line_segments.ts
+│   │       │   │       │   ├── line_span_gaps.ts
+│   │       │   │       │   ├── line_styling_array.ts
+│   │       │   │       │   └── radar_dataset_indexable_options.ts
+│   │       │   │       ├── data_types.ts
+│   │       │   │       ├── dataset_null_data.ts
+│   │       │   │       ├── date_adapter.ts
+│   │       │   │       ├── defaults.ts
+│   │       │   │       ├── elements
+│   │       │   │       │   └── scriptable_element_options.ts
+│   │       │   │       ├── extensions
+│   │       │   │       │   ├── plugin.ts
+│   │       │   │       │   └── scale.ts
+│   │       │   │       ├── helpers
+│   │       │   │       │   ├── dom.ts
+│   │       │   │       │   └── options.ts
+│   │       │   │       ├── interaction.ts
+│   │       │   │       ├── layout
+│   │       │   │       │   └── position.ts
+│   │       │   │       ├── options.ts
+│   │       │   │       ├── overrides.ts
+│   │       │   │       ├── parsed.data.type.ts
+│   │       │   │       ├── plugins
+│   │       │   │       │   ├── defaults.ts
+│   │       │   │       │   ├── plugin.colors
+│   │       │   │       │   │   └── colors.ts
+│   │       │   │       │   ├── plugin.decimation
+│   │       │   │       │   │   └── decimation_algorithm.ts
+│   │       │   │       │   ├── plugin.filler
+│   │       │   │       │   │   └── fill_target_true.ts
+│   │       │   │       │   └── plugin.tooltip
+│   │       │   │       │       ├── chart.tooltip.ts
+│   │       │   │       │       ├── tooltip_dataset_type.ts
+│   │       │   │       │       ├── tooltip_parsed_data_chart_defaults.ts
+│   │       │   │       │       ├── tooltip_parsed_data.ts
+│   │       │   │       │       └── tooltip_scriptable_background_color.ts
+│   │       │   │       ├── register.ts
+│   │       │   │       ├── scales
+│   │       │   │       │   ├── chart_options.ts
+│   │       │   │       │   ├── options.ts
+│   │       │   │       │   └── time_string_max.ts
+│   │       │   │       ├── scriptable_core_chart_options.ts
+│   │       │   │       ├── scriptable.ts
+│   │       │   │       ├── test_instance_assignment.ts
+│   │       │   │       ├── ticks
+│   │       │   │       │   └── ticks.ts
+│   │       │   │       └── tsconfig.json
+│   │       │   └── tsconfig.json
+│   │       ├── leaflet
+│   │       │   └── dist
+│   │       │       ├── images
+│   │       │       │   ├── layers-2x.png
+│   │       │       │   ├── layers.png
+│   │       │       │   ├── marker-icon-2x.png
+│   │       │       │   ├── marker-icon.png
+│   │       │       │   └── marker-shadow.png
+│   │       │       ├── leaflet-src.esm.js
+│   │       │       ├── leaflet-src.esm.js.map
+│   │       │       ├── leaflet-src.js
+│   │       │       ├── leaflet-src.js.map
+│   │       │       ├── leaflet.css
+│   │       │       ├── leaflet.js
+│   │       │       └── leaflet.js.map
+│   │       ├── leaflet.rotatedMarker.js
+│   │       ├── leaflet.tilelayer.fallback.js
+│   │       ├── smoothie.js
+│   │       └── socket.io.min.js
+│   ├── telem.py
+│   ├── templates
+│   │   └── main.html
+│   ├── test.py
+│   └── tiles
+│       ├── everett_estuary_high_res.mbtiles
+│       ├── UW_and_Seattle.mbtiles
+│       └── Washington_MaxZoom_14.mbtiles
+└── NorthAmerica_MaxZoom9.mbtiles
+
+197 directories, 1801 files
